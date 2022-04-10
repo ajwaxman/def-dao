@@ -10,7 +10,7 @@ function HomePage() {
             <div className="container">
                 <div className="content">
                     <h1>Definitely Crypto</h1>
-                    <p>Tinkering on the edge of the internet</p>
+                    <p>Tinkering on the edge of the internet.</p>
                 </div>
             </div>
         </div>
