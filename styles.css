@@ -140,21 +140,21 @@ p {
 
 @font-face {
     font-family: 'Obvia';
-    src: url('asset/obvia-medium.ttf');
+    src: url('asset/Obvia-Medium.ttf');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('asset/inter-regular.ttf');
+    src: url('asset/Inter-Regular.ttf');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('asset/inter-medium.ttf');
+    src: url('asset/Inter-Medium.ttf');
     font-weight: 600;
     font-style: normal;
 }
