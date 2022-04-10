@@ -32,13 +32,13 @@ function Manifesto() {
 
                     <p>A world where you come to work inspired and energized.</p>
 
-                    <p>A world where we work together to solve the biggest challenges of our lifetime like climate change and systemic racism.</p>
+                    <p>A world where we come together to solve the biggest challenges of our lifetime like climate change and systemic racism.</p>
 
                     <div className="divider">✹ &nbsp; &nbsp; ✹ &nbsp; &nbsp; ✹</div>                    
                     
-                    <p>We believe instrisically motivated builders will have an outsized role in harnessing web3 technologies and using them for good.</p>
+                    <p>We believe instrisically motivated builders will have an outsized role in harnessing web3 technologies.</p>
 
-                    <p>We also believe that these builders will do their best work when they're having fun and working alongside folks that inspire them and accelerate their learnings.</p>
+                    <p>We also believe that these builders will do their best work when they're having fun and working alongside folks that inspire them and that they can learn from.</p>
                         
                     <p>So that's why we're here. To help each other build great products that make a difference.</p>
 
