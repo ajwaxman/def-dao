@@ -213,7 +213,7 @@ p {
 }
 
 .divider {
-    text-align: center;
+    padding: 50px 0 35px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -222,6 +222,10 @@ p {
         display: block;
         padding-top: 120px;
         padding-bottom: 80px;
+    }
+
+    .divider {
+        padding: 40px 0 25px;
     }
 
     h1 {

@@ -22,13 +22,9 @@ function Manifesto() {
 
                     <p>Yes, there is a lot of speculative flipping and ponzinomics.</p>
                     
-                    <p>But beneath the surface are incredible new technologies that can help us create a better world.</p>
+                    <p>But beneath the surface are incredible new technologies that can help us make the world a better place.</p>
                     
-                    <br></br>
-                    <br></br>
                     <div className="divider">✹ &nbsp; &nbsp; ✹ &nbsp; &nbsp; ✹</div>
-                    <br></br>
-                    <br></br>
 
                     <p>A world where you are rewarded for the value you create.</p>
 
@@ -36,14 +32,9 @@ function Manifesto() {
 
                     <p>A world where you come to work inspired and energized.</p>
 
-                    <p>A world where you we work together to solve the biggest challenges of our lifetime.</p>
+                    <p>A world where we work together to solve the biggest challenges of our lifetime like climate change and systemic racism.</p>
 
-                    <br></br>
-                    <br></br>
-                    <div className="divider">✹ &nbsp; &nbsp; ✹ &nbsp; &nbsp; ✹</div>
-                    <br></br>
-                    <br></br>
-                    
+                    <div className="divider">✹ &nbsp; &nbsp; ✹ &nbsp; &nbsp; ✹</div>                    
                     
                     <p>We believe instrisically motivated builders will have an outsized role in harnessing web3 technologies and using them for good.</p>
 
