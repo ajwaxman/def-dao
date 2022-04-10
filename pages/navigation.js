@@ -17,9 +17,11 @@ const Navigation = () => {
                     document.getElementsByClassName("container-closed")[0].style.display = "none";
                     document.getElementsByClassName("container-opened")[0].style.display = "flex";
                     setTimeout(function () {
-                        document.getElementsByClassName("container-opened")[0].style.opacity = "1";
-                        document.getElementsByClassName("container-closed")[0].style.opacity = "0";
-                    }, 40);
+                        document.getElementsByClassName("container-opened")[0].classList.add('visible');
+                        document.getElementsByClassName("container-closed")[0].classList.add('visibly-hidden');
+                        document.getElementsByClassName("container-opened")[0].classList.remove('visibly-hidden');
+                        document.getElementsByClassName("container-closed")[0].classList.remove('visible');
+                    }, 20);
                     console.log("Hello");
                     setMobileNavOpen((mobileNavOpen) => !mobileNavOpen);
                 } else {
@@ -32,9 +34,11 @@ const Navigation = () => {
                     document.getElementsByClassName("container-closed")[0].style.display = "flex";
                     document.getElementsByClassName("container-opened")[0].style.display = "none";
                     setTimeout(function () {
-                        document.getElementsByClassName("container-opened")[0].style.opacity = "0";
-                        document.getElementsByClassName("container-closed")[0].style.opacity = "1";
-                    }, 40);
+                        document.getElementsByClassName("container-opened")[0].classList.add('visibly-hidden');
+                        document.getElementsByClassName("container-closed")[0].classList.add('visible');
+                        document.getElementsByClassName("container-opened")[0].classList.remove('visible');
+                        document.getElementsByClassName("container-closed")[0].classList.remove('visibly-hidden');
+                    }, 20);
                     console.log("Goodbye");
                     setMobileNavOpen((mobileNavOpen) => !mobileNavOpen);
                 }
