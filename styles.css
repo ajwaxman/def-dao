@@ -1,3 +1,160 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box; 
+}
+
+html, body, #__next {
+    height: 100%;
+    font-family: 'Inter';
+}
+
 body {
-    background: blue;;
+    background: blue;
+    padding: 10px;
+    background: linear-gradient(-45deg, #FB13E8, #00FFFF);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#__next {
+    background: #131313;
+}
+
+.wrapper {
+    display: inline;
+}
+
+img {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 80px;
+}
+
+ul {
+    color: white;
+    position: absolute;
+    top: 50px;
+    right: 65px;
+    font-family: 'Inter';
+    font-size: 1.125rem;
+}
+
+li {
+    display: inline;
+    margin-left: 40px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s linear;
+}
+
+a:hover {
+    opacity: 80%;
+}
+
+a:active {
+    opacity: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+}
+
+.content {
+    color: white;
+    align-self: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.5;
+    font-family: 'Obvia';
+    text-align: center;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    opacity: 70%;
+    margin-top: 8px
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-top: 2px;
+    }
+
+    img {
+        display: block;
+        width: 68px;
+        left: 50%;
+        margin-left: -39px;
+    }
+
+    .desktop-nav {
+        visibility: hidden;
+    }
+
+}
+
+@media only screen and (max-width: 380px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Obvia';
+    src: url('asset/obvia-medium.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('asset/inter-regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('asset/inter-medium.ttf');
+    font-weight: 600;
+    font-style: normal;
 }
