@@ -43,7 +43,8 @@ img {
     position: absolute;
     top: 50px;
     left: 50px;
-    width: 80px;
+    width: 60px;
+    transition: opacity 0.2s linear;
 }
 
 ul {
@@ -52,12 +53,72 @@ ul {
     top: 50px;
     right: 65px;
     font-family: 'Inter';
-    font-size: 1.125rem;
+    font-size: 1rem;
+}
+
+ul.mobile-nav-links {
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 0;
 }
 
 li {
     display: inline;
     margin-left: 40px;
+}
+
+.mobile-nav-links li {
+    display: block;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.mobile-nav {
+    position: absolute;
+    visibility: hidden;
+    right: 48px;
+    top: 40px;
+    z-index: 100;
+}
+
+.container.container-opened {
+    display: none;
+}
+
+.container.container-opened.mobile-nav-opened {
+    display: flex;
+}
+
+.bar-one,
+.bar-two,
+.bar-three {
+    width: 2rem;
+    height: 0.15rem;
+    background: white;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+    position: relative;
+    transform-origin: 1px;
+    margin-top: 8px;
+}
+
+.bar-one {
+    transform: rotate(0);
+}
+
+.mobile-nav-open .bar-one {
+    transform: rotate(45deg);
+}
+
+.mobile-nav-open .bar-two {
+    opacity: 0;
+}
+
+.mobile-nav-open .bar-three {
+    transform: rotate(-45deg);
 }
 
 a {
@@ -78,6 +139,15 @@ a:active {
     display: flex;
     justify-content: center;
     min-height: 100%;
+    transition: opacity 0.2s linear;
+}
+
+.container.mobile-nav-open, .logo.mobile-nav-open {
+    opacity: 0;
+}
+
+.container.mobile-nav-closed, .logo.mobile-nav-closed {
+    opacity: 1;
 }
 
 .content {
@@ -113,13 +183,17 @@ p {
 
     img {
         display: block;
-        width: 68px;
         left: 50%;
-        margin-left: -39px;
+        margin-left: -30px;
+        top: 45px;
     }
 
     .desktop-nav {
         visibility: hidden;
+    }
+
+    .mobile-nav {
+        visibility: visible;
     }
 
 }
