@@ -250,11 +250,10 @@ p {
         line-height: 1.6;
     }
 
-    img {
-        display: block;
-        left: 50%;
+    img {;
+        left: 70px;
         margin-left: -30px;
-        top: 45px;
+        top: 43px;
     }
 
     .desktop-nav {
