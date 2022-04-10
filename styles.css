@@ -7,6 +7,7 @@
 html, body, #__next {
     height: 100%;
     font-family: 'Inter';
+    overflow: auto;
 }
 
 body {
@@ -79,13 +80,16 @@ li {
 .mobile-nav {
     position: absolute;
     visibility: hidden;
-    right: 48px;
+    right: 45px;
     top: 38px;
     z-index: 100;
 }
 
 .container {
     transition: all 1s linear;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container.container-opened {
@@ -154,6 +158,12 @@ a:active {
     transition: opacity 1s linear;
 }
 
+.container.manifesto {
+    display: block;
+    padding-top: 150px;
+    padding-bottom: 120px;
+}
+
 .container.mobile-nav-open.visbly-hidden, .container.mobile-nav-closed.visbly-hidden, .logo.mobile-nav-open {
     opacity: 0;
 }
@@ -175,22 +185,65 @@ h1 {
     text-align: center;
 }
 
+.manifesto h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
 p {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 600;
     opacity: 70%;
-    margin-top: 8px
+    margin-top: 8px;
+}
+
+
+.manifesto p {
+    font-weight: 400;
+    font-size: 1.125rem;
+    opacity: 85%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.manifesto p span {
+    font-weight: 600;
+}
+
+.divider {
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
+
+    .container.manifesto {
+        display: block;
+        padding-top: 120px;
+        padding-bottom: 80px;
+    }
+
     h1 {
         font-size: 2.25rem;
     }
 
+    .manifesto h1 {
+        font-size: 1.75rem;
+        margin-bottom: 25px;
+    }
+
     p {
-        font-size: 1rem;
+        font-size: 1.125rem;
         margin-top: 2px;
+    }
+
+    .manifesto p {
+        font-size: 0.925rem;
+        opacity: 85%;
+        margin-top: 20px;
+        text-align: left;
+        line-height: 1.6;
     }
 
     img {
