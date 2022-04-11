@@ -16,8 +16,6 @@ function Manifesto() {
                 <div className="content manifesto">
                     <h1>Makers Gonna Make.</h1>
 
-    
-
                     <p>Web3 is creating the opportunity of a lifetime.</p>
 
                     <p>Yes, there is a lot of speculative flipping and ponzinomics.</p>
@@ -32,20 +30,17 @@ function Manifesto() {
 
                     <p>A world where you come to work inspired and energized.</p>
 
-                    <p>A world where we come together to solve the biggest challenges of our lifetime like climate change and systemic racism.</p>
+                    <p>A world where we come together to solve the biggest challenges of our lifetime.</p>
 
                     <div className="divider">✹ &nbsp; &nbsp; ✹ &nbsp; &nbsp; ✹</div>                    
                     
-                    <p>We believe instrisically motivated builders will have an outsized role in harnessing web3 technologies.</p>
+                    <p>We believe intrinsically motivated builders will have an outsized role in harnessing web3 technologies.</p>
 
                     <p>We also believe that these builders will do their best work when they're having fun and working alongside folks that inspire them and that they can learn from.</p>
                         
                     <p>So that's why we're here. To help each other build great products that make a difference.</p>
 
                     <p>And have a whole lot of fun while doing so.</p>
-
-                    <p>Wanna join?</p>
-
                 </div>
             </div>
             <div className="container container-opened visibly-hidden">
