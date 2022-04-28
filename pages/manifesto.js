@@ -1,17 +1,11 @@
-import Navigation from '../pages/navigation'
+import Navigation from '../components/navigation'
+import NavigationAnimation from '../components/navigation-animation'
 
 function Manifesto() {
     return (
         <div className="wrapper">
-            <a href="/">
-                <img className="logo" src="/def-logo.svg" alt="Def Logo" />
-            </a>
-            <ul className="desktop-nav">
-                <li><a href="/manifesto">Manifesto</a></li>
-                <li><a href="#">People</a></li>
-                <li><a href="#">Projects</a></li>
-            </ul>
             <Navigation />
+            <NavigationAnimation />
             <div className="container container-closed visible manifesto">
                 <div className="content manifesto">
                     <h1>Makers Gonna Make.</h1>
@@ -41,16 +35,6 @@ function Manifesto() {
                     <p>So that's why we're here. To help each other build great products that make a difference.</p>
 
                     <p>And have a whole lot of fun while doing so.</p>
-                </div>
-            </div>
-            <div className="container container-opened visibly-hidden">
-                <div className="content">
-                    <ul className="mobile-nav-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/manifesto">Manifesto</a></li>
-                        <li><a href="#">People</a></li>
-                        <li><a href="#">Projects</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

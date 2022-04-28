@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Navigation = () => {
+const NavigationAnimation = () => {
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
     return (
@@ -31,7 +31,7 @@ const Navigation = () => {
                     document.getElementsByClassName("container-opened")[0].classList.add('mobile-nav-closed');
                     document.getElementsByClassName("logo")[0].classList.remove('mobile-nav-open');
                     document.getElementsByClassName("logo")[0].classList.add('mobile-nav-closed');
-                    document.getElementsByClassName("container-closed")[0].style.display = "flex";
+                    document.getElementsByClassName("container-closed")[0].style.display = "block";
                     document.getElementsByClassName("container-opened")[0].style.display = "none";
                     setTimeout(function () {
                         document.getElementsByClassName("container-opened")[0].classList.add('visibly-hidden');
@@ -52,4 +52,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation
+export default NavigationAnimation

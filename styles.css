@@ -11,11 +11,14 @@ html, body, #__next {
 }
 
 body {
-    background: blue;
     padding: 10px;
     background: linear-gradient(-45deg, #FB13E8, #00FFFF);
     background-size: 400% 400%;
     animation: gradient 5s ease infinite;
+}
+
+body > .projects {
+    padding: 50px;
 }
 
 @keyframes gradient {
@@ -158,6 +161,10 @@ a:active {
     transition: opacity 1s linear;
 }
 
+.mobile-nav-open.visible {
+    min-height: 100vh;
+}
+
 .container.manifesto {
     display: block;
     padding-top: 150px;
@@ -170,6 +177,7 @@ a:active {
 
 .container.mobile-nav-closed.visible, .container.mobile-nav-open.visible, .logo.mobile-nav-closed {
     opacity: 1;
+    display: block;
 }
 
 .content {
