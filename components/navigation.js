@@ -8,7 +8,7 @@ const Navigation = () => {
             </a>
             <ul className="desktop-nav">
                 <li><a href="/manifesto">Manifesto</a></li>
-                <li><a href="people">People</a></li>
+                <li><a href="/people">People</a></li>
                 <li><a href="/projects">Projects</a></li>
             </ul>
             <div className="container container-opened visibly-hidden">
@@ -16,7 +16,7 @@ const Navigation = () => {
                     <ul className="mobile-nav-links">
                         <li><a href="/">Home</a></li>
                         <li><a href="/manifesto">Manifesto</a></li>
-                        <li><a href="#">People</a></li>
+                        <li><a href="/people">People</a></li>
                         <li><a href="/projects">Projects</a></li>
                     </ul>
                 </div>

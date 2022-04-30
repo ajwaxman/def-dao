@@ -17,7 +17,7 @@ body {
     animation: gradient 5s ease infinite;
 }
 
-body > .projects {
+body > .projects, body > .people, body > .manifesto {
     padding: 50px;
 }
 
@@ -262,7 +262,7 @@ p {
 
     img {;
         left: 70px;
-        margin-left: -30px;
+        margin-left: -39px;
         top: 43px;
     }
 

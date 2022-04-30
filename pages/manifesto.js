@@ -3,7 +3,7 @@ import NavigationAnimation from '../components/navigation-animation'
 
 function Manifesto() {
     return (
-        <div className="wrapper">
+        <div className="wrapper manifesto">
             <Navigation />
             <NavigationAnimation />
             <div className="container container-closed visible manifesto">
@@ -37,6 +37,10 @@ function Manifesto() {
                     <p>And have a whole lot of fun while doing so.</p>
                 </div>
             </div>
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                    body { padding: 0px }
+                `}} />
         </div>
     )
 }

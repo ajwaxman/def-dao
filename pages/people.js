@@ -3,7 +3,7 @@ import NavigationAnimation from '../components/navigation-animation'
 
 function People() {
     return (
-        <div className="wrapper projects">
+        <div className="wrapper people">
             <Navigation />
             <NavigationAnimation />
             <div className="container container-closed block visible manifesto">
