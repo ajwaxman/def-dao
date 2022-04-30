@@ -6,7 +6,7 @@ function People() {
         <div className="wrapper projects">
             <Navigation />
             <NavigationAnimation />
-            <div className="container container-closed visible manifesto">
+            <div className="container container-closed block visible manifesto">
                 <div className="content manifesto">
                     <h1>Who we are</h1>
                     TBD

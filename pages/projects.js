@@ -6,7 +6,7 @@ function Projects() {
         <div className="wrapper projects">
             <Navigation />
             <NavigationAnimation />
-            <div className="container container-closed visible manifesto">
+            <div className="container container-closed container-closed block visible manifesto">
                 <div className="content manifesto">
                     <h1>Stuff we're working on.</h1>
                     Our members are building a wide variety of projects: protocols, tooling, OSS, art, on chain NFTs, games, and more.

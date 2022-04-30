@@ -22,7 +22,7 @@ const NavigationAnimation = () => {
                         document.getElementsByClassName("container-opened")[0].classList.remove('visibly-hidden');
                         document.getElementsByClassName("container-closed")[0].classList.remove('visible');
                     }, 20);
-                    console.log("Hello");
+                    console.log("Opening mobile nav");
                     setMobileNavOpen((mobileNavOpen) => !mobileNavOpen);
                 } else {
                     document.getElementsByClassName("container-closed")[0].classList.remove('mobile-nav-open');
@@ -31,7 +31,11 @@ const NavigationAnimation = () => {
                     document.getElementsByClassName("container-opened")[0].classList.add('mobile-nav-closed');
                     document.getElementsByClassName("logo")[0].classList.remove('mobile-nav-open');
                     document.getElementsByClassName("logo")[0].classList.add('mobile-nav-closed');
-                    document.getElementsByClassName("container-closed")[0].style.display = "block";
+                    if (document.querySelector(".container-closed.block")) {
+                        document.getElementsByClassName("container-closed")[0].style.display = "block";
+                    } else {
+                        document.getElementsByClassName("container-closed")[0].style.display = "flex";
+                    }
                     document.getElementsByClassName("container-opened")[0].style.display = "none";
                     setTimeout(function () {
                         document.getElementsByClassName("container-opened")[0].classList.add('visibly-hidden');
@@ -39,13 +43,13 @@ const NavigationAnimation = () => {
                         document.getElementsByClassName("container-opened")[0].classList.remove('visible');
                         document.getElementsByClassName("container-closed")[0].classList.remove('visibly-hidden');
                     }, 20);
-                    console.log("Goodbye");
+                    console.log("Closing mobile nav");
                     setMobileNavOpen((mobileNavOpen) => !mobileNavOpen);
                 }
                 
             }}
         >
-            <div className = "bar-one"></div>
+            <div className="bar-one"></div>
             <div className="bar-two"></div>
             <div className="bar-three"></div>
         </div>
