@@ -12,8 +12,8 @@ const NavigationAnimation = () => {
                     document.getElementsByClassName("container-closed")[0].classList.remove('mobile-nav-closed');
                     document.getElementsByClassName("container-opened")[0].classList.add('mobile-nav-open');
                     document.getElementsByClassName("container-opened")[0].classList.remove('mobile-nav-closed');
-                    document.getElementsByClassName("logo")[0].classList.add('mobile-nav-open');
-                    document.getElementsByClassName("logo")[0].classList.remove('mobile-nav-closed');
+                    document.getElementsByClassName("def-logo")[0].classList.add('mobile-nav-open');
+                    document.getElementsByClassName("def-logo")[0].classList.remove('mobile-nav-closed');
                     document.getElementsByClassName("container-closed")[0].style.display = "none";
                     document.getElementsByClassName("container-opened")[0].style.display = "flex";
                     setTimeout(function () {
@@ -31,8 +31,8 @@ const NavigationAnimation = () => {
                     document.getElementsByClassName("container-closed")[0].classList.add('mobile-nav-closed');
                     document.getElementsByClassName("container-opened")[0].classList.remove('mobile-nav-open');
                     document.getElementsByClassName("container-opened")[0].classList.add('mobile-nav-closed');
-                    document.getElementsByClassName("logo")[0].classList.remove('mobile-nav-open');
-                    document.getElementsByClassName("logo")[0].classList.add('mobile-nav-closed');
+                    document.getElementsByClassName("def-logo")[0].classList.remove('mobile-nav-open');
+                    document.getElementsByClassName("def-logo")[0].classList.add('mobile-nav-closed');
                     if (document.querySelector(".container-closed.block")) {
                         document.getElementsByClassName("container-closed")[0].style.display = "block";
                     } else {
