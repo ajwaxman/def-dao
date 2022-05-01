@@ -38,7 +38,7 @@ export default function People({ projects }) {
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     try {
         const projects = await projects_table.select({}).firstPage();
 
