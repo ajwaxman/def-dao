@@ -23,6 +23,8 @@ const NavigationAnimation = () => {
                         document.getElementsByClassName("container-closed")[0].classList.remove('visible');
                     }, 20);
                     console.log("Opening mobile nav");
+                    console.log(process.env.GREETING)
+                    console.log(process.env.NEXT_PUBLIC_GREETING)
                     setMobileNavOpen((mobileNavOpen) => !mobileNavOpen);
                 } else {
                     document.getElementsByClassName("container-closed")[0].classList.remove('mobile-nav-open');

@@ -4,7 +4,7 @@ const Navigation = () => {
     return (
         <div>
             <a href="/">
-                <img className="logo" src="/def-logo.svg" alt="Def Logo" />
+                <img className="def-logo" src="/def-logo.svg" alt="Def Logo" />
             </a>
             <ul className="desktop-nav">
                 <li><a href="/manifesto">Manifesto</a></li>
