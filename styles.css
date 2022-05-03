@@ -241,6 +241,14 @@ p {
 /********************/
 /********************/
 
+.project .container {
+    max-width: none;;
+}
+
+.project .content.manifesto h1 {
+    text-align: center;
+}
+
 .card-container {
     width: 750px;
     margin: 0 auto;
@@ -293,7 +301,6 @@ p {
     transform: translateY(-50%);
 }
 
-
 @media only screen and (max-width: 600px) {
 
     .container.manifesto {
@@ -342,15 +349,6 @@ p {
         visibility: visible;
     }
 
-    /* Projects Page */
-    .card-container a:nth-child(odd) {
-        margin-right: 0px;
-    }
-
-    .card-container {
-        width: 350px;
-    }
-
 }
 
 @media only screen and (max-width: 380px) {
@@ -364,6 +362,18 @@ p {
 
 }
 
+@media only screen and (max-width: 800px) {
+
+    /* Projects Page */
+    .card-container a:nth-child(odd) {
+        margin-right: 0px;
+    }
+    
+    .card-container {
+        width: 350px;
+    }
+
+}
 
 
 
