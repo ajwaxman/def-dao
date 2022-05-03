@@ -237,12 +237,61 @@ p {
 
 /********************/
 /********************/
+/* People Styling */
+/********************/
+/********************/
+
+.people .container {
+    max-width: 450px;
+}
+
+.people .content.manifesto h1 {
+    text-align: center;
+}
+
+.people .people li {
+    padding: 25px 0px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    list-style-type: none;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    /* padding-left: 16px; */
+    transition: all 0.3s ease;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.people .people li:hover {
+    background: rgba(255, 255, 255, 0.02);
+    /* color: rgba(255, 255, 255, 0.7); */
+}
+
+ul.people {
+    padding: 0;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .card-container a:nth-child(odd) {
+        margin-right: 0px;
+    }
+
+    .card-container {
+        width: 350px;
+    }
+
+}
+
+
+/********************/
+/********************/
 /* Projects Styling */
 /********************/
 /********************/
 
 .project .container {
-    max-width: none;;
+    max-width: none;
 }
 
 .project .content.manifesto h1 {
@@ -252,7 +301,6 @@ p {
 .card-container {
     width: 750px;
     margin: 0 auto;
-    /* background: white; */
     display: block;
 }
 
@@ -300,6 +348,20 @@ p {
     top: 50%;
     transform: translateY(-50%);
 }
+
+@media only screen and (max-width: 800px) {
+
+    .card-container a:nth-child(odd) {
+        margin-right: 0px;
+    }
+
+    .card-container {
+        width: 350px;
+    }
+
+}
+
+/* General Media Styling */
 
 @media only screen and (max-width: 600px) {
 
@@ -358,19 +420,6 @@ p {
 
     p {
         font-size: 1rem;
-    }
-
-}
-
-@media only screen and (max-width: 800px) {
-
-    /* Projects Page */
-    .card-container a:nth-child(odd) {
-        margin-right: 0px;
-    }
-    
-    .card-container {
-        width: 350px;
     }
 
 }

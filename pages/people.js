@@ -16,7 +16,11 @@ export default function People({ people }) {
                 <div>
                     <ul className="people">
                         {people.map((twitter, key) => (
-                            <li key={key}><a href={"https://twitter.com/"+twitter}>{twitter}</a></li>
+                            <a href={"https://twitter.com/" + twitter}>
+                            <li key={key}>
+                                {twitter}
+                            </li>
+                            </a>                            
                         ))};
                     </ul>
                 </div>
