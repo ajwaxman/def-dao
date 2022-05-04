@@ -342,6 +342,7 @@ ul.people {
     border-radius: 8px;
     margin-bottom: 50px;
     padding: 40px;  
+    position: relative;
     z-index: -10;  
 }
 
