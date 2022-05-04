@@ -351,6 +351,7 @@ ul.people {
 
 .project.card img.logo {
     width: 50px;
+    border-radius: 100px;
 }
 
 .project.card h1 {
