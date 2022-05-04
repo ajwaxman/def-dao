@@ -180,14 +180,6 @@ a {
     transition: opacity 1s linear;
 }
 
-a:hover {
-    opacity: 80%;
-}
-
-a:active {
-    opacity: 100%;
-}
-
 .container {
     display: flex;
     justify-content: center;
@@ -458,6 +450,18 @@ ul.people {
     }
 
 }
+
+@media only screen and (min-width: 600px) {
+
+    a:hover {
+        /* opacity: 80%; */
+    }
+
+    a:active {
+        /* opacity: 100%; */
+    }
+
+} 
 
 
 
