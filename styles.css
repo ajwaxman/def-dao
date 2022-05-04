@@ -43,6 +43,10 @@ body > .projects, body > .people, body > .manifesto {
     display: inline;
 }
 
+.navigation {
+    z-index: 100;
+}
+
 .nav-background {
     position: absolute;
     top: 0;

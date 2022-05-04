@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navigation = () => {
     return (
-        <div>
+        <div className="navigation">
             <div className="nav-background"></div>
             <a href="/">
                 <img className="def-logo" src="/def-logo.svg" alt="Def Logo" />

@@ -1,12 +1,14 @@
 import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
 import { people_table } from "../utils/airtable"
+import MetaTags from '../components/metatags'
 
 
 export default function People({ people }) {
 
     return (
         <div className="wrapper people">
+            <MetaTags />
             <Navigation />
             <NavigationAnimation />
             <div className="container container-closed block visible manifesto">

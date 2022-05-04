@@ -1,9 +1,11 @@
 import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
+import MetaTags from '../components/metatags'
 
 function Manifesto() {
     return (
         <div className="wrapper manifesto">
+            <MetaTags />
             <Navigation />
             <NavigationAnimation />
             <div className="container container-closed visible manifesto">
