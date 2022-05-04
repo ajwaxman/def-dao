@@ -3,7 +3,7 @@ import NavigationAnimation from '../components/navigation-animation'
 
 function HomePage() {
     return (
-        <div className="wrapper">
+        <div className="wrapper index">
             <Navigation />
             <NavigationAnimation />
             <div className="container container-closed container-closed flex visible">
