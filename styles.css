@@ -194,7 +194,7 @@ a:active {
 .content {
     color: white;
     align-self: center;
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 h1 {
@@ -263,7 +263,7 @@ p {
 }
 
 .people .people li:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.08);
     /* color: rgba(255, 255, 255, 0.7); */
 }
 
@@ -398,7 +398,7 @@ ul.people {
     }
 
     img.def-logo {;
-        left: 70px;
+        left: 82px;
         margin-left: -39px;
         top: 43px;
     }
