@@ -13,7 +13,7 @@ export default function People({ projects }) {
             <NavigationAnimation />
             <div className="container container-closed block visible manifesto">
                 <div className="content manifesto">
-                    <h1>Stuff we're working on.</h1>
+                    <h1>Stuff we're working on</h1>
                     {/* Our members are building a wide variety of projects: protocols, tooling, OSS, art, on chain NFTs, games, and more. */}
                 </div>
                 <div className="card-container">
