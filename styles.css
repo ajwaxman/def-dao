@@ -341,7 +341,8 @@ ul.people {
     height: 475px;
     border-radius: 8px;
     margin-bottom: 50px;
-    padding: 40px;    
+    padding: 40px;  
+    z-index: -10;  
 }
 
 .card-container a:nth-child(odd){
