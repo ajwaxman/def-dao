@@ -12,9 +12,9 @@ export default function People({ projects }) {
             <Navigation />
             <NavigationAnimation />
             <div className="container container-closed block visible manifesto">
-                <div className="content manifesto">
-                    <h1>Stuff we're working on</h1>
-                    {/* Our members are building a wide variety of projects: protocols, tooling, OSS, art, on chain NFTs, games, and more. */}
+                <div className="content projects manifesto">
+                    <h1>Projects from DEF members</h1>
+                    <p className='description'>We're a collective of independent creators focused on building and learning from each other. Mostly via Discord, IRL events, and biweekly demos.</p>
                 </div>
                 <div className="card-container">
                     {projects.map((project, key) => (

@@ -11,6 +11,8 @@ const Navigation = () => {
                 {/* <li><a href="/manifesto">Manifesto</a></li> */}
                 <li><a href="/people">People</a></li>
                 <li><a href="/projects">Projects</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="https://twitter.com/defdao">Twitter</a></li>
             </ul>
             <div className="container container-opened visibly-hidden">
                 <div className="content">
@@ -19,6 +21,8 @@ const Navigation = () => {
                         {/* <li><a href="/manifesto">Manifesto</a></li> */}
                         <li><a href="/people">People</a></li>
                         <li><a href="/projects">Projects</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="https://twitter.com/defdao">Twitter</a></li>
                     </ul>
                 </div>
             </div>
