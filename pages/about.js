@@ -12,7 +12,7 @@ function About() {
                 <div className="content manifesto about">
                     <h1>About us</h1>
 
-                    <p>We're a community of curious, optimistic, and motivated builders excited by the posibilities of new technologies.</p>
+                    <p>We're a community of curious, optimistic, and motivated builders excited by the possibilities of new technologies.</p>
 
                     <div className="divider">✹ &nbsp; &nbsp; ✹ &nbsp; &nbsp; ✹</div>
 
