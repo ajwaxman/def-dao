@@ -1,10 +1,19 @@
 import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
 import MetaTags from '../components/metatags'
+import Image from 'next/image'
 import { people_table, projects_table } from "../utils/airtable"
 
 
 export default function People({ projects }) {
+
+    function getLargeImage(project) {
+        if (project['GIF']) {
+            return `/images/${project["id"]}-large.gif`
+        } else {
+            return `/images/${project["id"]}-large.jpg`
+        }
+    }
 
     return (
         <div className="wrapper project">
@@ -18,13 +27,13 @@ export default function People({ projects }) {
                 </div>
                 <div className="card-container">
                     {projects.map((project, key) => (
-                        <a href={project["Link"]}>
+                        <a key={project['id']} href={project["Link"]}>
                             <div className="project card">
-                                <img className="logo" src={project["Logo"][0]["url"]} alt={project["Name"]}></img>
+                                <img className="logo" src={`/images/${project["id"]}.jpg`}></img>
                                 <h1>{project["Name"]}</h1>
                                 <p>{project["Description"]}</p>
                                 <div className="screenshot-container">
-                                    <img className="screenshot" src={project["Screenshot"][0]["url"]} alt={project["Name"]}></img>
+                                    <img className="screenshot" src={getLargeImage(project)} alt={project["Name"]}></img>
                                 </div>
                             </div>
                         </a>
