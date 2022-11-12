@@ -12,6 +12,7 @@
     "airtable": "^0.11.3",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-feather": "^2.0.10"
   }
 }
