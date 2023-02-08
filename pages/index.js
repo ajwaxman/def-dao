@@ -14,12 +14,12 @@ function HomePage() {
                 <div className="content">
                     <h1>Definitely Demo'ing</h1>
                     <p>Tinkering on the edge of the internet.</p>
-                    <a href="https://twitter.com/defdao" style={twitter}>
+                    {/* <a href="https://twitter.com/defdao" style={twitter}>
                         <span style={{'margin': '0 auto'}}>
                             <Twitter size={24} strokeWidth={0} fill={'white'} style={{'margin-right': '10px', 'float':'left' }} />
                             Follow us on Twitter
                         </span>
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </div>
