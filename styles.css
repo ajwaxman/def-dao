@@ -1,3 +1,7 @@
+:root {
+    --navigation-height: 100px;
+}
+
 *,
 *::before,
 *::after {
@@ -45,22 +49,19 @@ body > .projects, body > .people, body > .manifesto {
 
 .navigation {
     z-index: 100;
-}
-
-.nav-background {
-    position: absolute;
+    position: sticky;
     top: 0;
     background: #131313;
-    height: 130px;
-    width: 100%;
+    height: var(--navigation-height);
     -moz-box-shadow: 3px 3px 5px 6px #131313;
     -webkit-box-shadow: 3px 3px 5px 6px #131313;
     box-shadow: 3px 3px 5px 6px #131313;
-}
+    width: 100%;
+}  
 
 @media only screen and (max-width: 600px) {
     .nav-background {
-        height: 100px;
+        height: var(--navigation-height);
     }
 }
 
@@ -181,9 +182,9 @@ a {
 }
 
 .container {
-    display: flex;
+    display: grid;
     justify-content: center;
-    min-height: 100%;
+    min-height: calc(100% - var(--navigation-height));
     transition: opacity 1s linear;
 }
 
@@ -194,8 +195,8 @@ a {
 }
 
 .container.manifesto {
-    display: block;
-    padding-top: 150px;
+    display: grid;
+    padding-top: 32px;
     padding-bottom: 120px;
 }
 
