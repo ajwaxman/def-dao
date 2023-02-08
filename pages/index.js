@@ -16,7 +16,7 @@ function HomePage() {
                     <p>Tinkering on the edge of the internet.</p>
                     <a href="https://twitter.com/defdao" style={twitter}>
                         <span style={{'margin': '0 auto'}}>
-                            <Twitter size={24} strokeWidth={1} fill={'#ffffff'} style={{'margin-right': '10px', 'float':'left' }} />
+                            <Twitter size={24} strokeWidth={0} fill={'white'} style={{'margin-right': '10px', 'float':'left' }} />
                             Follow us on Twitter
                         </span>
                     </a>
@@ -41,6 +41,7 @@ const twitter = {
     'width': '85%',
     'text-align': 'center',
     'max-width': '240px',
+    'background': '#1DA1F2',
     // Adding media query..
     '@media (max-width: 500px)': {
         
