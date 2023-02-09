@@ -188,7 +188,12 @@ a {
     transition: opacity 1s linear;
 }
 
-.mobile-nav-open.visible {
+.index .container {
+    transform: translateY(calc(var(--navigation-height)/-2));
+}
+
+.mobile-nav-open.visible {  
+    transform: translateY(50%);
     min-height: 100vh;
     /* mobile viewport bug fix */
     min-height: -webkit-fill-available;

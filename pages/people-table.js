@@ -6,7 +6,7 @@ import { getAllPeople } from '../utils/notion'
 
 
 export default function PeopleTable({ people }) {
-    console.log(people[0].properties);
+    console.log(people[0].properties.Avatar.url);
 
     return (
         <div className="wrapper people">
