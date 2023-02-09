@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.3",
     "airtable": "^0.11.3",
     "next": "12.1.4",
     "react": "18.0.0",
