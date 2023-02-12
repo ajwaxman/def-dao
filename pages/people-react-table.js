@@ -29,7 +29,11 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                     return(
                         skills.map(skillData => {
                             const [skill, emoji, color] = skillData;
-                            return <span key={skill} alt={skill}>{emoji}</span>
+                            return (
+                                <span style={{background: color, padding: "4px"}}>
+                                    <span key={skill} alt={skill}>{emoji}</span>
+                                </span>
+                            )
                         })
                     )
                 }
@@ -79,62 +83,24 @@ export async function getStaticProps() {
                 ["backend", "🛠️", "#EFF0F0"],
                 ["solidity", "⛓️", "#E7E9E9"],
             ],
-            "availability": "part time",
+            "availability": ["part time"],
             "twitter": "jamiew"
         },
         {
             "username": "yoshi",
             "location": "New York",
             "skills": [
-                // ["frontend", "💻", "#F7F8F8"],
+                ["frontend", "💻", "#F7F8F8"],
             ],
-            // "skills": "test",
-            "availability": "test",
+            "availability": [],
             "twitter": "0xyoshixyz"
         },
 
     ]
 
-    let columnData = [
-        {
-            Header: "Member",
-            accessor: "username"
-        },
-        {
-            Header: "Location",
-            accessor: "location"
-        },
-        {
-            Header: "Skills",
-            accessor: "skills",
-            Cell: (props) => {
-                console.log(props.value);
-                const skills = props.value;
-                return(
-                    skills.map(skillData => {
-                        const [skill, emoji, color] = skillData;
-                        return <span alt={skill}>{emoji}</span>
-                    })
-                )
-            }
-        },
-        {
-            Header: "Availability",
-            accessor: "availability"
-        },
-        {
-            Header: "Twitter",
-            accessor: "twitter"
-        }
-    ];
-
-    columnData = JSON.parse(JSON.stringify(columnData));
-    console.log(columnData)
-
     return {
         props: {
             people: data,
-            columnData: columnData,
             exampleData: exampleData
         },
         revalidate: 60
