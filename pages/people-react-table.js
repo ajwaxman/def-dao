@@ -101,6 +101,7 @@ export async function getStaticProps() {
             people: data,
             exampleData: exampleData
         },
+        fallback: true,
         revalidate: 60
     };
 }
