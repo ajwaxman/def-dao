@@ -22,7 +22,17 @@ export default function PeopleReactTable({ people, exampleData }) {
             },
             {
                 Header: "Skills",
-                accessor: "skills"
+                accessor: "skills",
+                Cell: (props) => {
+                    console.log(props.value);
+                    const skills = props.value;
+                    return(
+                        skills.map(skillData => {
+                            const [skill, emoji, color] = skillData;
+                            return <span alt={skill}>{emoji}</span>
+                        })
+                    )
+                }
             },
             {
                 Header: "Availability",
