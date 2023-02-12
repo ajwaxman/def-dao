@@ -23,16 +23,6 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             {
                 Header: "Skills",
                 accessor: "skills",
-                Cell: (props) => {
-                    console.log(props.value);
-                    const skills = props.value;
-                    return(
-                        skills.map(skillData => {
-                            const [skill, emoji, color] = skillData;
-                            return <span alt={skill}>{emoji}</span>
-                        })
-                    )
-                }
             },
             {
                 Header: "Availability",
@@ -55,7 +45,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                 <div className="content manifesto">
                     <h1>Who we are</h1>
                 </div>
-                <Table columns={columnData} data={exampleData}/>
+                <Table columns={columns} data={exampleData}/>
             </div>
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -74,23 +64,23 @@ export async function getStaticProps() {
         {
             "username": "jamiedubs",
             "location": "New York",
-            "skills": [
-                ["frontend", "💻", "#F7F8F8"],
-                ["backend", "🛠️", "#EFF0F0"],
-                ["solidity", "⛓️", "#E7E9E9"],
-            ],
-            "availability": [
-                "part time"
-            ],
+            // "skills": [
+            //     ["frontend", "💻", "#F7F8F8"],
+            //     ["backend", "🛠️", "#EFF0F0"],
+            //     ["solidity", "⛓️", "#E7E9E9"],
+            // ],
+            "skills": "test",
+            "availability": "part time",
             "twitter": "jamiew"
         },
         {
             "username": "yoshi",
             "location": "New York",
-            "skills": [
-                // ["frontend", "💻", "#F7F8F8"],
-            ],
-            "availability": [],
+            // "skills": [
+            //     // ["frontend", "💻", "#F7F8F8"],
+            // ],
+            "skills": "test",
+            "availability": "test",
             "twitter": "0xyoshixyz"
         },
 
