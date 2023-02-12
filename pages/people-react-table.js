@@ -3,7 +3,7 @@ import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
 import MetaTags from '../components/metatags'
 import { getAllPeople } from '../utils/notion'
-import Table from './table'
+import Table from '../components/table'
 
 
 
