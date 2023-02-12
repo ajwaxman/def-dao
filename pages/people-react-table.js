@@ -27,7 +27,7 @@ export default function PeopleReactTable({ people, exampleData }) {
                     console.log(props.value);
                     const skills = props.value;
                     return(
-                        skills?.map(skillData => {
+                        skills && skills.map(skillData => {
                             const [skill, emoji, color] = skillData;
                             return <span alt={skill}>{emoji}</span>
                         })
