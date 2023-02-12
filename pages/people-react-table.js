@@ -1,15 +1,43 @@
+import { useMemo } from 'react'
 import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
-import { people_table } from "../utils/airtable"
 import MetaTags from '../components/metatags'
 import { getAllPeople } from '../utils/notion'
+import Table from './table'
 
 
-export default function PeopleReactTable({ people }) {
+
+export default function PeopleReactTable({ people, exampleData }) {
     console.log(people[0].properties.Avatar.url);
 
+    const columns = useMemo(
+        () => [
+            {
+                Header: "Member",
+                accessor: "username"
+            },
+            {
+                Header: "Location",
+                accessor: "location"
+            },
+            {
+                Header: "Skills",
+                accessor: "skills"
+            },
+            {
+                Header: "Availability",
+                accessor: "availability"
+            },
+            {
+                Header: "Twitter",
+                accessor: "twitter"
+            }
+        ],
+        []
+    );
+
     return (
-        <div className="wrapper people">
+        <div className="wrapper people table">
             <MetaTags />
             <Navigation />
             <NavigationAnimation />
@@ -17,31 +45,7 @@ export default function PeopleReactTable({ people }) {
                 <div className="content manifesto">
                     <h1>Who we are</h1>
                 </div>
-                <div>
-                    <ul className="people table">
-                            {people.map((person, key) => (
-                                <a key={key} href={""}>
-                                    <li>
-                                        {/* { console.log(person.properties.Avatar.url)} */}
-                                        { person.properties.Avatar.url ? console.log() : console.log(person.properties['Discord Username'].title[0].plain_text)}
-                                        { person.properties.Avatar.url && (
-                                            <img 
-                                                src={person.properties.Avatar.url} 
-                                                onError={({ currentTarget }) => {
-                                                    currentTarget.onerror = null; // prevents looping
-                                                    currentTarget.src="def-logo.png";
-                                                }}
-                                            />
-                                        )}
-                                        { !person.properties.Avatar.url && (
-                                            <div>{console.log('what')} What</div>
-                                        )}
-                                        <span>{person.properties['Discord Username'].title[0].plain_text}</span>
-                                    </li>
-                                </a>                            
-                            ))};
-                        </ul>
-                    </div>
+                <Table columns={columns} data={exampleData}/>
             </div>
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -55,9 +59,37 @@ export default function PeopleReactTable({ people }) {
 export async function getStaticProps() {
     const data = await getAllPeople()
 
+
+    const exampleData = [
+        {
+            "username": "jamiedubs",
+            "location": "New York",
+            "skills": [
+                ["frontend", "💻", "#F7F8F8"],
+                ["backend", "🛠️", "#EFF0F0"],
+                ["solidity", "⛓️", "#E7E9E9"],
+            ],
+            "availability": [
+                "part time"
+            ],
+            "twitter": "jamiew"
+        },
+        {
+            "username": "yoshi",
+            "location": "New York",
+            "skills": [
+                ["frontend", "💻", "#F7F8F8"],
+            ],
+            "availability": [],
+            "twitter": "0xyoshixyz"
+        },
+
+    ]
+
     return {
         props: {
             people: data,
+            exampleData: exampleData
         },
         revalidate: 60
     };

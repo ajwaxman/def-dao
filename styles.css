@@ -328,6 +328,14 @@ ul.people {
     background-image: url('./public/def-logo.png')
 }
 
+.people.table {
+    color: white;
+}
+
+.people.table tr {
+    background: #333;
+}
+
 
 
 @media only screen and (max-width: 800px) {
