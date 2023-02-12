@@ -23,7 +23,7 @@ export default function Table({ columns, data }) {
   return(
     <table {...getTableProps()}>
         <thead>
-        {headerGroups.map(headerGroup => (
+        {headerGroups?.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
@@ -32,7 +32,7 @@ export default function Table({ columns, data }) {
         ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
+        {rows?.map((row, i) => {
             prepareRow(row);
             return (
             <tr {...row.getRowProps()}>
