@@ -23,6 +23,16 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             {
                 Header: "Skills",
                 accessor: "skills",
+                Cell: (props) => {
+                    console.log(props.value);
+                    const skills = props.value;
+                    return(
+                        skills.map(skillData => {
+                            const [skill, emoji, color] = skillData;
+                            return <span key={skill} alt={skill}>{emoji}</span>
+                        })
+                    )
+                }
             },
             {
                 Header: "Availability",
@@ -64,22 +74,21 @@ export async function getStaticProps() {
         {
             "username": "jamiedubs",
             "location": "New York",
-            // "skills": [
-            //     ["frontend", "💻", "#F7F8F8"],
-            //     ["backend", "🛠️", "#EFF0F0"],
-            //     ["solidity", "⛓️", "#E7E9E9"],
-            // ],
-            "skills": "test",
+            "skills": [
+                ["frontend", "💻", "#F7F8F8"],
+                ["backend", "🛠️", "#EFF0F0"],
+                ["solidity", "⛓️", "#E7E9E9"],
+            ],
             "availability": "part time",
             "twitter": "jamiew"
         },
         {
             "username": "yoshi",
             "location": "New York",
-            // "skills": [
-            //     // ["frontend", "💻", "#F7F8F8"],
-            // ],
-            "skills": "test",
+            "skills": [
+                // ["frontend", "💻", "#F7F8F8"],
+            ],
+            // "skills": "test",
             "availability": "test",
             "twitter": "0xyoshixyz"
         },
