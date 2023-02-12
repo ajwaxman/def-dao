@@ -7,7 +7,7 @@ import Table from './table'
 
 
 
-export default function PeopleReactTable({ people, exampleData }) {
+export default function PeopleReactTable({ people, columnData, exampleData }) {
     console.log(people[0].properties.Avatar.url);
 
     const columns = useMemo(
@@ -27,7 +27,7 @@ export default function PeopleReactTable({ people, exampleData }) {
                     console.log(props.value);
                     const skills = props.value;
                     return(
-                        skills && skills.map(skillData => {
+                        skills.map(skillData => {
                             const [skill, emoji, color] = skillData;
                             return <span alt={skill}>{emoji}</span>
                         })
@@ -55,7 +55,7 @@ export default function PeopleReactTable({ people, exampleData }) {
                 <div className="content manifesto">
                     <h1>Who we are</h1>
                 </div>
-                <Table columns={columns} data={exampleData}/>
+                <Table columns={columnData} data={exampleData}/>
             </div>
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -88,7 +88,7 @@ export async function getStaticProps() {
             "username": "yoshi",
             "location": "New York",
             "skills": [
-                ["frontend", "💻", "#F7F8F8"],
+                // ["frontend", "💻", "#F7F8F8"],
             ],
             "availability": [],
             "twitter": "0xyoshixyz"
@@ -96,9 +96,46 @@ export async function getStaticProps() {
 
     ]
 
+    let columnData = [
+        {
+            Header: "Member",
+            accessor: "username"
+        },
+        {
+            Header: "Location",
+            accessor: "location"
+        },
+        {
+            Header: "Skills",
+            accessor: "skills",
+            Cell: (props) => {
+                console.log(props.value);
+                const skills = props.value;
+                return(
+                    skills.map(skillData => {
+                        const [skill, emoji, color] = skillData;
+                        return <span alt={skill}>{emoji}</span>
+                    })
+                )
+            }
+        },
+        {
+            Header: "Availability",
+            accessor: "availability"
+        },
+        {
+            Header: "Twitter",
+            accessor: "twitter"
+        }
+    ];
+
+    columnData = JSON.parse(JSON.stringify(columnData));
+    console.log(columnData)
+
     return {
         props: {
             people: data,
+            columnData: columnData,
             exampleData: exampleData
         },
         revalidate: 60

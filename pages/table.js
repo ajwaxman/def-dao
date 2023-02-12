@@ -19,24 +19,25 @@ export default function Table({ columns, data }) {
     - react-table doesn't have UI, it's headless. We just need to put
     the react-table props from the Hooks, and it will do its magic automatically\
   */
+  console.log(columns)
 
   return(
     <table {...getTableProps()}>
         <thead>
-        {headerGroups && headerGroups.map(headerGroup => (
+        {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers && headerGroup.headers.map(column => (
+            {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
             ))}
             </tr>
         ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-        {rows && rows.map((row, i) => {
+        {rows.map((row, i) => {
             prepareRow(row);
             return (
             <tr {...row.getRowProps()}>
-                {row.cells && row.cells.map(cell => {
+                {row.cells.map(cell => {
                 return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
                 })}
             </tr>
