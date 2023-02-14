@@ -64,14 +64,14 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             <MetaTags />
             <Navigation />
             <NavigationAnimation />
-            <div className="container container-closed block visible">
+            <Container className="container-closed block visible">
                 <div className="content">
                     <Header>Who we are</Header>
                 </div>
                 <TableContainer>
                     <Table columns={columns} data={exampleData}/>
                 </TableContainer>
-            </div>
+            </Container>
             <style dangerouslySetInnerHTML={{
                 __html: `
                     body { padding: 0px }
@@ -129,6 +129,11 @@ export async function getStaticProps() {
         revalidate: 60
     };
 }
+
+const Container = styled.div`
+    max-width: 960px;
+    margin: 0 auto
+`
 
 const TableContainer = styled.div`
     overflow-x: auto;

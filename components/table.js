@@ -27,7 +27,7 @@ export default function Table({ columns, data }) {
         {headerGroups.map(headerGroup => (
             <TableHeaderRow {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <TableHeader {...column.getHeaderProps()}>{column.render("Header")}</TableHeader>
             ))}
             </TableHeaderRow>
         ))}
@@ -38,7 +38,7 @@ export default function Table({ columns, data }) {
             return (
             <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                return <Cell {...cell.getCellProps()}>{cell.render("Cell")}</Cell>;
                 })}
             </TableRow>
             );
@@ -51,7 +51,8 @@ export default function Table({ columns, data }) {
 const TableWrapper = styled.table`
   border-collapse: collapse;
   color: white;
-  width: 960px;
+  width: 100%;
+  min-width: 700px;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 `
@@ -67,7 +68,6 @@ const TableRow = styled.tr`
   background: white;
   color: #131313;
   height: 70px;
-  border-bottom: 1px solid #E6E8EC;
 `
 
 const TableHead = styled.thead`
@@ -75,4 +75,14 @@ const TableHead = styled.thead`
     padding-left: 24px;
     width: 0;
   }
+`
+
+const TableHeader = styled.th`
+  border: 1px solid #F9FAFB;
+  border-bottom: 1px solid #E6E8EC;
+`
+
+const Cell = styled.td`
+  border: 1px solid white;
+  border-bottom: 1px solid #E6E8EC;
 `
