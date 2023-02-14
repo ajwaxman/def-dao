@@ -47,6 +47,10 @@ body > .projects, body > .people, body > .manifesto {
     display: inline;
 }
 
+.wrapper.people-table {
+    display: block;
+}
+
 .navigation {
     z-index: 100;
     position: sticky;
@@ -128,6 +132,10 @@ ul.mobile-nav-links {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.people-table .container {
+    max-width: 960px;
 }
 
 .container.container-opened {
@@ -326,14 +334,6 @@ ul.people {
     border-radius: 100%;
     margin-right: 16px;
     background-image: url('./public/def-logo.png')
-}
-
-.people.table {
-    color: white;
-}
-
-.people.table tr {
-    background: #333;
 }
 
 

@@ -4,16 +4,26 @@ import NavigationAnimation from '../components/navigation-animation'
 import MetaTags from '../components/metatags'
 import { getAllPeople } from '../utils/notion'
 import Table from '../components/table'
-
-
+import styled from 'styled-components'
+import { imageConfigDefault } from 'next/dist/shared/lib/image-config'
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
-    console.log(people[0].properties.Avatar.url);
+    // console.log(people[0].properties.Avatar.url);
 
     const columns = useMemo(
         () => [
             {
                 Header: "Member",
+                accessor: "avatar",
+                Cell: (props) => {
+                    const avatar = props.value;
+                    return(
+                        <Avatar src={avatar}></Avatar>
+                    )
+                }
+            },
+            {
+                Header: "",
                 accessor: "username"
             },
             {
@@ -24,14 +34,13 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                 Header: "Skills",
                 accessor: "skills",
                 Cell: (props) => {
-                    console.log(props.value);
                     const skills = props.value;
                     return(
                         skills.map(skillData => {
                             const [skill, emoji, color] = skillData;
                             return (
-                                <span style={{background: color, padding: "4px"}}>
-                                    <span key={skill} alt={skill}>{emoji}</span>
+                                <span key={skill} style={{background: color, padding: "4px"}}>
+                                    <span alt={skill}>{emoji}</span>
                                 </span>
                             )
                         })
@@ -51,21 +60,23 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
     );
 
     return (
-        <div className="wrapper people table">
+        <Wrapper className="wrapper people-table">
             <MetaTags />
             <Navigation />
             <NavigationAnimation />
-            <div className="container container-closed block visible manifesto">
-                <div className="content manifesto">
-                    <h1>Who we are</h1>
+            <div className="container container-closed block visible">
+                <div className="content">
+                    <Header>Who we are</Header>
                 </div>
-                <Table columns={columns} data={exampleData}/>
+                <TableContainer>
+                    <Table columns={columns} data={exampleData}/>
+                </TableContainer>
             </div>
             <style dangerouslySetInnerHTML={{
                 __html: `
                     body { padding: 0px }
                 `}} />
-        </div>
+        </Wrapper>
 
     )
 }
@@ -76,6 +87,7 @@ export async function getStaticProps() {
 
     const exampleData = [
         {
+            "avatar": "https://cdn.discordapp.com/avatars/399553900539150338/6604d8415054cf8fbacc18e8665cdb04.webp",
             "username": "jamiedubs",
             "location": "New York",
             "skills": [
@@ -87,6 +99,7 @@ export async function getStaticProps() {
             "twitter": "jamiew"
         },
         {
+            "avatar": "https://cdn.discordapp.com/avatars/395737520005971969/3a09b2a68f30ca0ec30d8fac09ab6f03.webp",
             "username": "yoshi",
             "location": "New York",
             "skills": [
@@ -95,6 +108,16 @@ export async function getStaticProps() {
             "availability": [],
             "twitter": "0xyoshixyz"
         },
+        {
+            "avatar":"https://cdn.discordapp.com/avatars/597994658081013770/0aca8325822d0df575d908b23633aa8f.webp",
+            "username": "saadiq",
+            "location": "New York",
+            "skills": [
+                ["frontend", "💻", "#F7F8F8"],
+            ],
+            "availability": [],
+            "twitter": "0xyoshixyz"
+        }
 
     ]
 
@@ -106,3 +129,22 @@ export async function getStaticProps() {
         revalidate: 60
     };
 }
+
+const TableContainer = styled.div`
+    overflow-x: auto;
+`
+
+const Header = styled.h1`
+    text-align: center;
+    font-size: 3rem;
+`
+
+const Wrapper = styled.div`
+    display: block;
+`
+
+const Avatar = styled.img`
+    width: 40px;
+    border-radius: 100px;
+    margin-left: 24px;
+`

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTable } from "react-table";
+import styled from 'styled-components'
 
 export default function Table({ columns, data }) {
   // Use the useTable Hook to send the columns and data to build the table
@@ -19,31 +20,59 @@ export default function Table({ columns, data }) {
     - react-table doesn't have UI, it's headless. We just need to put
     the react-table props from the Hooks, and it will do its magic automatically\
   */
-  console.log(columns)
 
   return(
-    <table {...getTableProps()}>
-        <thead>
+    <TableWrapper {...getTableProps()}>
+        <TableHead>
         {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <TableHeaderRow {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
             ))}
-            </tr>
+            </TableHeaderRow>
         ))}
-        </thead>
+        </TableHead>
         <tbody {...getTableBodyProps()}>
         {rows.map((row, i) => {
             prepareRow(row);
             return (
-            <tr {...row.getRowProps()}>
+            <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
                 return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
                 })}
-            </tr>
+            </TableRow>
             );
         })}
         </tbody>
-    </table>
+    </TableWrapper>
   )
 }
+
+const TableWrapper = styled.table`
+  border-collapse: collapse;
+  color: white;
+  width: 960px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+`
+
+const TableHeaderRow = styled.tr`
+  background: #F9FAFB;
+  color: #131313;
+  height: 42px;
+  text-align: left;
+`
+
+const TableRow = styled.tr`
+  background: white;
+  color: #131313;
+  height: 70px;
+  border-bottom: 1px solid #E6E8EC;
+`
+
+const TableHead = styled.thead`
+  ${TableHeaderRow} th:first-of-type {
+    padding-left: 24px;
+    width: 0;
+  }
+`
