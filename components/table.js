@@ -49,11 +49,12 @@ export default function Table({ columns, data }) {
 }
 
 const TableWrapper = styled.table`
+  font-size: 14px;
   border-collapse: collapse;
   color: white;
   width: 100%;
   min-width: 700px;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 8px 8px;
   overflow: hidden;
 `
 
@@ -67,7 +68,7 @@ const TableHeaderRow = styled.tr`
 const TableRow = styled.tr`
   background: white;
   color: #131313;
-  height: 70px;
+  height: 64px;
 `
 
 const TableHead = styled.thead`

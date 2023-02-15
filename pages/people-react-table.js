@@ -149,7 +149,7 @@ const Wrapper = styled.div`
 `
 
 const Avatar = styled.img`
-    width: 40px;
+    width: 36px;
     border-radius: 100px;
     margin-left: 24px;
 `
