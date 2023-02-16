@@ -68,7 +68,7 @@ const ArrowUpIconWrapper = styled(ArrowUpIcon)`
   width: ${iconSize};
   height: ${iconSize};
   display: inline;
-  margin-left: calc(-${iconSize} + 1px);
+  margin-left: calc(-${iconSize});
   transform: translateX(${iconSize});
   padding-left: ${iconPadding};
   padding-top: ${iconPadding};
@@ -78,7 +78,7 @@ const DownArrowIconWrapper = styled(ArrowDownIcon)`
   width: ${iconSize};
   height: ${iconSize};
   display: inline;
-  margin-left: calc(-${iconSize} + 1px);
+  margin-left: calc(-${iconSize});
   transform: translateX(${iconSize});
   padding-left: ${iconPadding};
   padding-top: ${iconPadding};
