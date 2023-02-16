@@ -1,6 +1,7 @@
 import React from "react";
-import { useTable } from "react-table";
+import { useSortBy, useTable } from "react-table";
 import styled from 'styled-components'
+import { ArrowDownIcon, ArrowUpIcon} from '@heroicons/react/24/solid'
 
 export default function Table({ columns, data }) {
   // Use the useTable Hook to send the columns and data to build the table
@@ -13,7 +14,9 @@ export default function Table({ columns, data }) {
   } = useTable({
     columns,
     data
-  });
+  },
+  useSortBy
+  );
 
   /*
     Render the UI for your table
@@ -27,7 +30,17 @@ export default function Table({ columns, data }) {
         {headerGroups.map(headerGroup => (
             <TableHeaderRow {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-                <TableHeader {...column.getHeaderProps()}>{column.render("Header")}</TableHeader>
+                <TableHeader {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render("Header")}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? <ArrowUpIconWrapper/>
+                        : <DownArrowIconWrapper/>
+                      :""
+                    }
+                  </span>
+                </TableHeader>
             ))}
             </TableHeaderRow>
         ))}
@@ -47,6 +60,29 @@ export default function Table({ columns, data }) {
     </TableWrapper>
   )
 }
+
+const iconSize = '18px';
+const iconPadding = '6px';
+
+const ArrowUpIconWrapper = styled(ArrowUpIcon)`
+  width: ${iconSize};
+  height: ${iconSize};
+  display: inline;
+  margin-left: calc(-${iconSize} + 1px);
+  transform: translateX(${iconSize});
+  padding-left: ${iconPadding};
+  padding-top: ${iconPadding};
+`
+
+const DownArrowIconWrapper = styled(ArrowDownIcon)`
+  width: ${iconSize};
+  height: ${iconSize};
+  display: inline;
+  margin-left: calc(-${iconSize} + 1px);
+  transform: translateX(${iconSize});
+  padding-left: ${iconPadding};
+  padding-top: ${iconPadding};
+`
 
 const TableWrapper = styled.table`
   font-size: 14px;
@@ -81,6 +117,7 @@ const TableHead = styled.thead`
 const TableHeader = styled.th`
   border: 1px solid #F9FAFB;
   border-bottom: 1px solid #E6E8EC;
+  line-height: 30px;
 `
 
 const Cell = styled.td`

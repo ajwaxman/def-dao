@@ -5,7 +5,7 @@ import MetaTags from '../components/metatags'
 import { getAllPeople } from '../utils/notion'
 import Table from '../components/table'
 import styled from 'styled-components'
-import { imageConfigDefault } from 'next/dist/shared/lib/image-config'
+
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
     // console.log(people[0].properties.Avatar.url);
