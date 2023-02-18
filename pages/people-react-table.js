@@ -1,9 +1,13 @@
 import { useMemo } from 'react'
+import { getAllPeople } from '../utils/notion'
+import { memberSort } from '../utils/utils'
 import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
+import RadixTooltip from '../components/tooltip'
+import Member from '../components/member'
 import MetaTags from '../components/metatags'
-import { getAllPeople } from '../utils/notion'
 import Table from '../components/table'
+import exampleData from '../utils/data/example-data'
 import styled from 'styled-components'
 
 
@@ -74,6 +78,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             <Container className="container-closed block visible">
                 <div className="content">
                     <Header>Who we are</Header>
+                    <RadixTooltip />
                 </div>
                 <TableContainer>
                     <Table columns={columns} data={exampleData}/>
@@ -88,75 +93,8 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
     )
 }
 
-const memberSort = (
-    rowA,
-    rowB,
-  ) => {
-    const usernameA = rowA.values.member[0];
-    const usernameB = rowB.values.member[0];
-    return usernameA < usernameB ? -1 : usernameB > usernameA ? 1 : 0; 
-  };
-
-function Member({username, avatar_url}) {
-    return(
-        <MemberWrapper>
-            <Avatar src={avatar_url}></Avatar>
-            <span>{username}</span>
-        </MemberWrapper>
-    )
-}
-
 export async function getStaticProps() {
     const data = await getAllPeople()
-
-
-    const exampleData = [
-        {
-            "member": [
-                "jamiedubs",
-                "https://cdn.discordapp.com/avatars/399553900539150338/6604d8415054cf8fbacc18e8665cdb04.webp"
-            ],
-            "avatar": "https://cdn.discordapp.com/avatars/399553900539150338/6604d8415054cf8fbacc18e8665cdb04.webp",
-            "username": "jamiedubs",
-            "location": "New York",
-            "skills": [
-                ["frontend", "💻", "#F7F8F8"],
-                ["backend", "🛠️", "#EFF0F0"],
-                ["solidity", "⛓️", "#E7E9E9"],
-            ],
-            "availability": ["part time"],
-            "twitter": "jamiew"
-        },
-        {
-            "member": [
-                "yoshi",
-                "https://cdn.discordapp.com/avatars/395737520005971969/3a09b2a68f30ca0ec30d8fac09ab6f03.webp"
-            ],
-            "avatar": "https://cdn.discordapp.com/avatars/395737520005971969/3a09b2a68f30ca0ec30d8fac09ab6f03.webp",
-            "username": "yoshi",
-            "location": "Cleveland",
-            "skills": [
-                ["frontend", "💻", "#F7F8F8"],
-            ],
-            "availability": [],
-            "twitter": "0xyoshixyz"
-        },
-        {
-            "member": [
-                "saadiq",
-                "https://cdn.discordapp.com/avatars/597994658081013770/0aca8325822d0df575d908b23633aa8f.webp"
-            ],
-            "avatar":"https://cdn.discordapp.com/avatars/597994658081013770/0aca8325822d0df575d908b23633aa8f.webp",
-            "username": "saadiq",
-            "location": "Los Angeles",
-            "skills": [
-                ["frontend", "💻", "#F7F8F8"],
-            ],
-            "availability": [],
-            "twitter": "saadiq"
-        }
-
-    ]
 
     return {
         props: {
@@ -183,18 +121,4 @@ const Header = styled.h1`
 
 const Wrapper = styled.div`
     display: block;
-`
-
-const Avatar = styled.img`
-    width: 36px;
-    border-radius: 100px;
-`
-
-const MemberWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  span {
-    margin-left: 16px;
-  }
 `
