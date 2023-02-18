@@ -14,17 +14,15 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
         () => [
             {
                 Header: "Member",
-                accessor: "avatar",
+                accessor: "member",
                 Cell: (props) => {
-                    const avatar = props.value;
+                    console.log(props.value)
+                    const username = props.value[0];
+                    const avatar_url = props.value[1];
                     return(
-                        <Avatar src={avatar}></Avatar>
+                        <Member username={username} avatar_url={avatar_url}/>
                     )
                 }
-            },
-            {
-                Header: "",
-                accessor: "username"
             },
             {
                 Header: "Location",
@@ -81,12 +79,25 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
     )
 }
 
+function Member({username, avatar_url}) {
+    return(
+        <MemberWrapper>
+            <Avatar src={avatar_url}></Avatar>
+            <span>{username}</span>
+        </MemberWrapper>
+    )
+}
+
 export async function getStaticProps() {
     const data = await getAllPeople()
 
 
     const exampleData = [
         {
+            "member": [
+                "jamiedubs",
+                "https://cdn.discordapp.com/avatars/399553900539150338/6604d8415054cf8fbacc18e8665cdb04.webp"
+            ],
             "avatar": "https://cdn.discordapp.com/avatars/399553900539150338/6604d8415054cf8fbacc18e8665cdb04.webp",
             "username": "jamiedubs",
             "location": "New York",
@@ -99,9 +110,13 @@ export async function getStaticProps() {
             "twitter": "jamiew"
         },
         {
+            "member": [
+                "yoshi",
+                "https://cdn.discordapp.com/avatars/395737520005971969/3a09b2a68f30ca0ec30d8fac09ab6f03.webp"
+            ],
             "avatar": "https://cdn.discordapp.com/avatars/395737520005971969/3a09b2a68f30ca0ec30d8fac09ab6f03.webp",
             "username": "yoshi",
-            "location": "New York",
+            "location": "Cleveland",
             "skills": [
                 ["frontend", "💻", "#F7F8F8"],
             ],
@@ -109,14 +124,18 @@ export async function getStaticProps() {
             "twitter": "0xyoshixyz"
         },
         {
+            "member": [
+                "saadiq",
+                "https://cdn.discordapp.com/avatars/597994658081013770/0aca8325822d0df575d908b23633aa8f.webp"
+            ],
             "avatar":"https://cdn.discordapp.com/avatars/597994658081013770/0aca8325822d0df575d908b23633aa8f.webp",
             "username": "saadiq",
-            "location": "New York",
+            "location": "Los Angeles",
             "skills": [
                 ["frontend", "💻", "#F7F8F8"],
             ],
             "availability": [],
-            "twitter": "0xyoshixyz"
+            "twitter": "saadiq"
         }
 
     ]
@@ -132,7 +151,7 @@ export async function getStaticProps() {
 
 const Container = styled.div`
     max-width: 960px;
-    margin: 0 auto
+    margin: 0 auto;
 `
 
 const TableContainer = styled.div`
@@ -152,4 +171,20 @@ const Avatar = styled.img`
     width: 36px;
     border-radius: 100px;
     margin-left: 24px;
+    display: flex;
+`
+
+const MemberWrapper = styled.div`
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  td img {
+    width: 36px;
+    border-radius: 100px;
+    margin-left: 24px;
+  }
+  span {
+    margin-left: 16px;
+  }
 `
