@@ -1,14 +1,14 @@
 import { useMemo } from 'react'
+import styled from 'styled-components'
 import { getAllPeople } from '../utils/notion'
 import { memberSort } from '../utils/utils'
+import exampleData from '../utils/data/example-data'
 import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
 import RadixTooltip from '../components/tooltip'
 import Member from '../components/member'
 import MetaTags from '../components/metatags'
 import Table from '../components/table'
-import exampleData from '../utils/data/example-data'
-import styled from 'styled-components'
 
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
@@ -50,9 +50,11 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                         skills.map(skillData => {
                             const [skill, emoji, color] = skillData;
                             return (
-                                <span key={skill} style={{background: color, padding: "4px"}}>
-                                    <span alt={skill}>{emoji}</span>
-                                </span>
+                                <RadixTooltip text={skill}>
+                                    <span key={skill} style={{background: color, padding: "4px"}}>
+                                        <span alt={skill}>{emoji}</span>
+                                    </span>
+                                </RadixTooltip>
                             )
                         })
                     )
@@ -69,6 +71,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
         ],
         []
     );
+    
 
     return (
         <Wrapper className="wrapper people-table">
@@ -78,7 +81,6 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             <Container className="container-closed block visible">
                 <div className="content">
                     <Header>Who we are</Header>
-                    <RadixTooltip />
                 </div>
                 <TableContainer>
                     <Table columns={columns} data={exampleData}/>

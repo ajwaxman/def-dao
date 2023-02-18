@@ -8,11 +8,11 @@ const exampleData = [
         "username": "jamiedubs",
         "location": "New York",
         "skills": [
-            ["frontend", "💻", "#F7F8F8"],
-            ["backend", "🛠️", "#EFF0F0"],
-            ["solidity", "⛓️", "#E7E9E9"],
+            ["Frontend", "💻", "#F7F8F8"],
+            ["Backend", "🛠️", "#EFF0F0"],
+            ["Solidity", "⛓️", "#E7E9E9"],
         ],
-        "availability": ["part time"],
+        "availability": ["Part time"],
         "twitter": "jamiew"
     },
     {
