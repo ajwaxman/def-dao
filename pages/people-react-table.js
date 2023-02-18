@@ -191,7 +191,6 @@ const Avatar = styled.img`
 `
 
 const MemberWrapper = styled.div`
-  min-width: 200px;
   display: flex;
   align-items: center;
   font-weight: 700;
