@@ -8,16 +8,24 @@ import styled from 'styled-components'
 
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
-    // console.log(people[0].properties.Avatar.url);
 
     const columns = useMemo(
         () => [
+            {
+                Header: "",
+                id: 'index',
+                accessor: '1',
+                indexed: true,
+                disableSortBy: true,
+                Cell: (props) => {
+                    return <RowNumber>{props.value}</RowNumber>;
+                }
+            },
             {
                 Header: "Member",
                 accessor: "member",
                 sortType: memberSort,
                 Cell: (props) => {
-                    // console.log(props.value)
                     const username = props.value[0];
                     const avatar_url = props.value[1];
                     return(
@@ -180,8 +188,6 @@ const Wrapper = styled.div`
 const Avatar = styled.img`
     width: 36px;
     border-radius: 100px;
-    margin-left: 24px;
-    display: flex;
 `
 
 const MemberWrapper = styled.div`
@@ -189,11 +195,6 @@ const MemberWrapper = styled.div`
   display: flex;
   align-items: center;
   font-weight: 700;
-  td img {
-    width: 36px;
-    border-radius: 100px;
-    margin-left: 24px;
-  }
   span {
     margin-left: 16px;
   }

@@ -51,7 +51,8 @@ export default function Table({ columns, data }) {
             return (
             <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                return <Cell {...cell.getCellProps()}>{cell.render("Cell")}</Cell>;
+                  
+                return <Cell {...cell.getCellProps()}>{cell.column.indexed ? <RowNumber>{i + 1}</RowNumber> : cell.render('Cell')}</Cell>;
                 })}
             </TableRow>
             );
@@ -123,4 +124,8 @@ const TableHeader = styled.th`
 const Cell = styled.td`
   border: 1px solid white;
   border-bottom: 1px solid #E6E8EC;
+`
+
+const RowNumber = styled.div`
+    margin: 0 24px;
 `
