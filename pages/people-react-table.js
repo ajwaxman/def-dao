@@ -15,8 +15,9 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             {
                 Header: "Member",
                 accessor: "member",
+                sortType: memberSort,
                 Cell: (props) => {
-                    console.log(props.value)
+                    // console.log(props.value)
                     const username = props.value[0];
                     const avatar_url = props.value[1];
                     return(
@@ -78,6 +79,15 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
 
     )
 }
+
+const memberSort = (
+    rowA,
+    rowB,
+  ) => {
+    const usernameA = rowA.values.member[0];
+    const usernameB = rowB.values.member[0];
+    return usernameA > usernameB ? -1 : usernameB < usernameA ? 1 : 0; 
+  };
 
 function Member({username, avatar_url}) {
     return(
