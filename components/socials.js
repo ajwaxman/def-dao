@@ -24,14 +24,18 @@ const Socials = ({socials}) => {
 
 const SocialLink = ({link, children}) => {
     return (
-        <a href={link} target="_blank" rel="noopener noreferrer">
+        <Link href={link} target="_blank" rel="noopener noreferrer">
             {children}
-        </a>
+        </Link>
     )
 }
 
-const iconSize = '18px';
+const iconSize = '20px';
 const iconSpacing = '16px';
+
+const Link = styled.a`
+    margin: 2px;
+`
 
 const IconWrapper = styled.div`
     display: inline-flex;
@@ -40,7 +44,7 @@ const IconWrapper = styled.div`
     svg {
         height: ${iconSize};
         width: ${iconSize};
-        margin-left: ${iconSpacing};
+        margin: 0 calc(${iconSpacing}/2 - 2px);
         path {
             fill: #3F3F46;
         }
