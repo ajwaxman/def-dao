@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { getAllPeople } from '../utils/notion'
 import { memberSort } from '../utils/utils'
@@ -10,10 +10,12 @@ import Member from '../components/member'
 import MetaTags from '../components/metatags'
 import Table from '../components/table'
 import Socials from '../components/socials'
-import { GitHubIcon } from '../components/icons'
+import { AvailabilityInput, SkillInput } from '../components/selectInputs'
 
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
+
+    const [availabilityFilter, setAvailabilityFilter] = React.useState('all');
 
     const columns = useMemo(
         () => [
@@ -52,8 +54,8 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                         skills.map(skillData => {
                             const [skill, emoji, color] = skillData;
                             return (
-                                <RadixTooltip text={skill}>
-                                    <span key={skill} style={{background: color, padding: "4px"}}>
+                                <RadixTooltip key={skill} text={skill}>
+                                    <span style={{background: color, padding: "4px"}}>
                                         <span alt={skill}>{emoji}</span>
                                     </span>
                                 </RadixTooltip>
@@ -84,7 +86,6 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
         []
     );
     
-
     return (
         <Wrapper className="wrapper people-table">
             <MetaTags />
@@ -94,6 +95,10 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                 <div className="content">
                     <Header>Who we are</Header>
                 </div>
+                <FilterWrapper>
+                    <SkillInput />
+                    <AvailabilityInput availability={availabilityFilter} setAvailabilityFilter={setAvailabilityFilter} />
+                </FilterWrapper>
                 <TableContainer>
                     <Table columns={columns} data={exampleData}/>
                 </TableContainer>
@@ -135,4 +140,16 @@ const Header = styled.h1`
 
 const Wrapper = styled.div`
     display: block;
+`
+
+const FilterWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+
+    select {
+        margin-left: 20px;
+        padding: 4px 8px;
+    }
 `

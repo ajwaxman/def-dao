@@ -11,10 +11,10 @@ const Socials = ({socials}) => {
     }
     return (
         <IconWrapper>
-            {socials.map(social => {
+            {socials.map((social) => {
                 return (
-                    <SocialLink link={social[1]}>
-                       {socialIcons[social[0]]}
+                    <SocialLink key={social[0]} link={social[1]}>
+                        {socialIcons[social[0]]}
                     </SocialLink>
                 )
             })}
