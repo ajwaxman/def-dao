@@ -9,6 +9,8 @@ import RadixTooltip from '../components/tooltip'
 import Member from '../components/member'
 import MetaTags from '../components/metatags'
 import Table from '../components/table'
+import Socials from '../components/socials'
+import { GitHubIcon } from '../components/icons'
 
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
@@ -65,8 +67,18 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                 accessor: "availability"
             },
             {
-                Header: "Twitter",
-                accessor: "twitter"
+                Header: "Date Joined",
+                accessor: "dateJoined"
+            },
+            {
+                Header: "",
+                accessor: "socials",
+                Cell: (props) => {
+                    const socials = props.value;
+                    return (
+                        <Socials socials={socials} />
+                    )
+                }
             }
         ],
         []

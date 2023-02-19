@@ -124,6 +124,10 @@ const TableHeader = styled.th`
 const Cell = styled.td`
   border: 1px solid white;
   border-bottom: 1px solid #E6E8EC;
+  &:last-child {
+    text-align: right;
+    width: 160px;
+  }
 `
 
 const RowNumber = styled.div`

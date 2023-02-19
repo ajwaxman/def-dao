@@ -13,7 +13,14 @@ const exampleData = [
             ["Solidity", "⛓️", "#E7E9E9"],
         ],
         "availability": ["Part time"],
-        "twitter": "jamiew"
+        "twitter": "jamiew",
+        "dateJoined": "2021-08-07",
+        "socials": [
+            ["twitter","jamiew"],
+            ["opensea", "https://opensea.io/jamiedubs"],
+            ["github", "jamiew"],
+            ["website","http://jamiedubs.com/"]
+        ]
     },
     {
         "member": [
@@ -27,7 +34,14 @@ const exampleData = [
             ["frontend", "💻", "#F7F8F8"],
         ],
         "availability": [],
-        "twitter": "0xyoshixyz"
+        "twitter": "0xyoshixyz",
+        "dateJoined": "2022-08-07",
+        "socials": [
+            ["twitter","0xYoshiXYZ"],
+            ["opensea", "https://opensea.io/0xYoshiXYZ"],
+            ["github", "ajwaxman"],
+            ["website","http://0xYoshi.xyz/"]
+        ]
     },
     {
         "member": [
@@ -41,7 +55,12 @@ const exampleData = [
             ["frontend", "💻", "#F7F8F8"],
         ],
         "availability": [],
-        "twitter": "saadiq"
+        "twitter": "saadiq",
+        "dateJoined": "2021-09-07",
+        "socials": [
+            ["twitter","saadiq"],
+            ["opensea", "https://opensea.io/saadiq"]
+        ]
     }
 
 ]
