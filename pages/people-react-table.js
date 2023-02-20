@@ -94,7 +94,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                     <Header>Who we are</Header>
                 </div>
                 <TableContainer>
-                    <Table columns={columns} data={exampleData}/>
+                    <Table columns={columns} data={people}/>
                 </TableContainer>
             </Container>
             <style dangerouslySetInnerHTML={{
@@ -108,6 +108,10 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
 
 export async function getStaticProps() {
     const data = await getAllPeople()
+
+    console.log(data[0]);
+
+    console.log(data);
 
     return {
         props: {
