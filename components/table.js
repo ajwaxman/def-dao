@@ -1,7 +1,8 @@
 import React from "react";
-import { useSortBy, useTable } from "react-table";
+import { useFilters, useSortBy, useTable } from "react-table";
 import styled from 'styled-components'
 import { ArrowDownIcon, ArrowUpIcon} from '@heroicons/react/24/solid'
+import { AvailabilitySelector, LocationSelector, SkillSelector } from "./selectInputs";
 
 export default function Table({ columns, data }) {
   // Use the useTable Hook to send the columns and data to build the table
@@ -11,10 +12,13 @@ export default function Table({ columns, data }) {
     headerGroups, // headerGroups, if your table has groupings
     rows, // rows for the table based on the data passed
     prepareRow, // Prepare the row (this function needs to be called for each row before getting the row props)
+    setFilter,
+    // state: {filters},
   } = useTable({
     columns,
     data
   },
+  useFilters,
   useSortBy
   );
 
@@ -25,40 +29,47 @@ export default function Table({ columns, data }) {
   */
 
   return(
-    <TableWrapper {...getTableProps()}>
-        <TableHead>
-        {headerGroups.map(headerGroup => (
-            <TableHeaderRow {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-                <TableHeader {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render("Header")}
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? <ArrowUpIconWrapper/>
-                        : <DownArrowIconWrapper/>
-                      :""
-                    }
-                  </span>
-                </TableHeader>
-            ))}
-            </TableHeaderRow>
-        ))}
-        </TableHead>
-        <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
-            prepareRow(row);
-            return (
-            <TableRow {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  
-                return <Cell {...cell.getCellProps()}>{cell.column.indexed ? <RowNumber>{i + 1}</RowNumber> : cell.render('Cell')}</Cell>;
-                })}
-            </TableRow>
-            );
-        })}
-        </tbody>
-    </TableWrapper>
+    <>
+      <FilterWrapper>
+        <LocationSelector setFilter={setFilter} />
+        <SkillSelector setFilter={setFilter} />
+        <AvailabilitySelector setFilter={setFilter} />
+      </FilterWrapper>
+      <TableWrapper {...getTableProps()}>
+          <TableHead>
+          {headerGroups.map(headerGroup => (
+              <TableHeaderRow {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                  <TableHeader {...column.getHeaderProps(column.getSortByToggleProps())}>
+                    {column.render("Header")}
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? <ArrowUpIconWrapper/>
+                          : <DownArrowIconWrapper/>
+                        :""
+                      }
+                    </span>
+                  </TableHeader>
+              ))}
+              </TableHeaderRow>
+          ))}
+          </TableHead>
+          <tbody {...getTableBodyProps()}>
+          {rows.map((row, i) => {
+              prepareRow(row);
+              return (
+              <TableRow {...row.getRowProps()}>
+                  {row.cells.map(cell => {
+                    
+                  return <Cell {...cell.getCellProps()}>{cell.column.indexed ? <RowNumber>{i + 1}</RowNumber> : cell.render('Cell')}</Cell>;
+                  })}
+              </TableRow>
+              );
+          })}
+          </tbody>
+      </TableWrapper>
+    </>
   )
 }
 
@@ -83,6 +94,18 @@ const DownArrowIconWrapper = styled(ArrowDownIcon)`
   transform: translateX(${iconSize});
   padding-left: ${iconPadding};
   padding-top: ${iconPadding};
+`
+
+const FilterWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+
+    select {
+        margin-left: 20px;
+        padding: 4px 8px;
+    }
 `
 
 const TableWrapper = styled.table`

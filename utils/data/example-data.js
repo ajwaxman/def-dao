@@ -12,7 +12,7 @@ const exampleData = [
             ["Backend", "🛠️", "#EFF0F0"],
             ["Solidity", "⛓️", "#E7E9E9"],
         ],
-        "availability": ["Part time"],
+        "availability": ["Part Time"],
         "twitter": "jamiew",
         "dateJoined": "2021-08-07",
         "socials": [
@@ -54,7 +54,7 @@ const exampleData = [
         "skills": [
             ["frontend", "💻", "#F7F8F8"],
         ],
-        "availability": [],
+        "availability": ["Solidity Audits"],
         "twitter": "saadiq",
         "dateJoined": "2021-09-07",
         "socials": [

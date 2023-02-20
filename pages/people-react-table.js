@@ -15,8 +15,6 @@ import { AvailabilityInput, SkillInput } from '../components/selectInputs'
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
 
-    const [availabilityFilter, setAvailabilityFilter] = React.useState('all');
-
     const columns = useMemo(
         () => [
             {
@@ -95,10 +93,6 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                 <div className="content">
                     <Header>Who we are</Header>
                 </div>
-                <FilterWrapper>
-                    <SkillInput />
-                    <AvailabilityInput availability={availabilityFilter} setAvailabilityFilter={setAvailabilityFilter} />
-                </FilterWrapper>
                 <TableContainer>
                     <Table columns={columns} data={exampleData}/>
                 </TableContainer>
@@ -140,16 +134,4 @@ const Header = styled.h1`
 
 const Wrapper = styled.div`
     display: block;
-`
-
-const FilterWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 16px;
-
-    select {
-        margin-left: 20px;
-        padding: 4px 8px;
-    }
 `
