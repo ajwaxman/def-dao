@@ -6,7 +6,9 @@ const notion = new Client({
 });
 
 export const getAllPeople = async () => {
-    const people = await notion.databases.query({
+    let results = []
+
+    let data = await notion.databases.query({
         database_id: process.env.DATABASE_ID,
         sorts: [
             {
@@ -16,15 +18,28 @@ export const getAllPeople = async () => {
         ]
     })
 
-    const allPeople = people.results;
+    results = [...data.results]
 
-    const firstMember = people.results[0];
+    while (data.has_more) {
+        data = await notion.databases.query({
+            database_id: process.env.DATABASE_ID,
+            sorts: [
+                {
+                    property: "Joined",
+                    direction: "ascending"
+                }
+            ],
+            start_cursor: data.next_cursor
+        }) 
 
-    // console.log(firstMember.properties['Discord Username'].title[0].plain_text)
+        console.log(data);
 
-    return allPeople.map(({properties, icon}) => {
-        const userName = properties['Discord Username'].title[0].plain_text
-        const avatarUrl = icon.external.url;
+        results = [...results, ...data.results]
+    }
+
+    return results.map(({properties, icon}) => {
+        const userName = properties['Discord Username'].title[0]?.plain_text || ""
+        const avatarUrl = icon?.external.url || "";
         const location = properties.Location.multi_select[0]?.name || "";
         const skills = properties.Skills.multi_select.map(skill => {
             return skillDetails[skill.name] || "";
@@ -32,7 +47,7 @@ export const getAllPeople = async () => {
         const availability = properties.Availability.multi_select.map(openType => {
             return openType.name;
         });
-        const dateJoined = properties.Joined.date.start || "";
+        const dateJoined = properties.Joined.date?.start || "";
         let socials = [];
         // properties.Wallet
         const twitter = properties.Twitter.rich_text[0]?.plain_text || "";

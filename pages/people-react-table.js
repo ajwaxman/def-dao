@@ -109,10 +109,6 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
 export async function getStaticProps() {
     const data = await getAllPeople()
 
-    console.log(data[0]);
-
-    console.log(data);
-
     return {
         props: {
             people: data,
