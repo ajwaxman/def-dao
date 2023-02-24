@@ -53,8 +53,8 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                             const [skill, emoji, color] = skillData;
                             return (
                                 <RadixTooltip key={skill} text={skill}>
-                                    <span style={{background: color, padding: "4px"}}>
-                                        <span alt={skill}>{emoji}</span>
+                                    <span style={{display: "inline-block", padding: "2px 0", background: color, minWidth: "24px", textAlign: "center"}}>
+                                         <span alt={skill}>{emoji}</span>
                                     </span>
                                 </RadixTooltip>
                             )

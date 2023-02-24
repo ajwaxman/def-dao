@@ -32,8 +32,6 @@ export const getAllPeople = async () => {
             start_cursor: data.next_cursor
         }) 
 
-        console.log(data);
-
         results = [...results, ...data.results]
     }
 
@@ -42,6 +40,9 @@ export const getAllPeople = async () => {
         const avatarUrl = icon?.external.url || "";
         const location = properties.Location.multi_select[0]?.name || "";
         const skills = properties.Skills.multi_select.map(skill => {
+            if (userName === "shahruz") {
+                console.log(skill);
+            }
             return skillDetails[skill.name] || "";
         } );
         const availability = properties.Availability.multi_select.map(openType => {
