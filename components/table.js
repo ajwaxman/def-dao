@@ -109,6 +109,9 @@ const FilterWrapper = styled.div`
 `
 
 const TableWrapper = styled.table`
+  table-layout: auto; 
+  border-collapse: collapse;
+  width: 100%;    
   font-size: 14px;
   border-collapse: collapse;
   color: white;
@@ -135,6 +138,30 @@ const TableHead = styled.thead`
   ${TableHeaderRow} th:first-of-type {
     padding-left: 24px;
     width: 0;
+  }
+  ${TableHeaderRow} th:nth-of-type(1) {
+    width: 0%; // row number
+  }
+  ${TableHeaderRow} th:nth-of-type(2) {
+    width: 22%; // username
+    white-space: nowrap;
+  }
+  ${TableHeaderRow} th:nth-of-type(3) {
+    width: 12%; // location
+    white-space: nowrap;
+  }
+  ${TableHeaderRow} th:nth-of-type(4) {
+    width: 30%;
+    white-space: nowrap;
+  }
+  ${TableHeaderRow} th:nth-of-type(5) {
+    width: 15%;
+  }
+  ${TableHeaderRow} th:nth-of-type(6) {
+    width: 10%; // joined
+  }
+  ${TableHeaderRow} th:nth-of-type(7) {
+    width: 15%; // social media
   }
 `
 
