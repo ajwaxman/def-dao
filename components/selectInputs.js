@@ -39,7 +39,7 @@ export const SkillSelector = ({setFilter}) => {
             <option value="rust">Rust</option>
             <option value="cairo">Cairo</option>
             <option value="analytics">Analytics</option>
-            <option value="games">Game Dev</option>
+            <option value="game">Game Dev</option>
             <option value="copywriting">Copywriting</option>
             <option value="product design">Product Design</option>
             <option value="brand design">Brand Design</option>
