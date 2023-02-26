@@ -47,16 +47,20 @@ export const getAllPeople = async () => {
         });
         const dateJoined = properties.Joined.date?.start || "";
         let socials = [];
-        // properties.Wallet
-        const twitter = properties.Twitter.rich_text[0]?.plain_text || "";
-        const opensea = properties.OpenSea.rich_text[0]?.plain_text || "";
-        const github = properties.GitHub.rich_text[0]?.plain_text || "";
-        const website = properties.Website.rich_text[0]?.plain_text || "";
+        
+        const twitterAvatar = properties.Twitter.rich_text[0]?.plain_text;
+        const openseaAvatar = properties.OpenSea.rich_text[0]?.plain_text;
+        const githubAvatar = properties.GitHub.rich_text[0]?.plain_text;
 
-        twitter && socials.push(["twitter", twitter]);
-        opensea && socials.push(["opensea", opensea]);
-        github && socials.push(["github", github]);
-        website && socials.push(["website", website]);
+        const twitterLink = twitterAvatar && `https://twitter.com/${twitterAvatar}` || "";
+        const openseaLink = openseaAvatar && `https://opensea.io/${openseaAvatar}` || "";
+        const githubLink = githubAvatar && `https://github.com/${githubAvatar}` || "";
+        const websiteLink = properties.Website.rich_text[0]?.plain_text || "";
+
+        twitterLink && socials.push(["twitter", twitterLink]);
+        openseaLink && socials.push(["opensea", openseaLink]);
+        githubLink && socials.push(["github", githubLink]);
+        websiteLink && socials.push(["website", websiteLink]);
         
         return {
             member: [userName, avatarUrl],
