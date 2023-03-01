@@ -143,7 +143,7 @@ const TableHead = styled.thead`
     width: 0%; // row number
   }
   ${TableHeaderRow} th:nth-of-type(2) {
-    width: 22%; // username
+    width: 18%; // username
     white-space: nowrap;
   }
   ${TableHeaderRow} th:nth-of-type(3) {
@@ -151,7 +151,7 @@ const TableHead = styled.thead`
     white-space: nowrap;
   }
   ${TableHeaderRow} th:nth-of-type(4) {
-    width: 30%;
+    width: 28%;
     white-space: nowrap;
   }
   ${TableHeaderRow} th:nth-of-type(5) {
@@ -161,7 +161,7 @@ const TableHead = styled.thead`
     width: 10%; // joined
   }
   ${TableHeaderRow} th:nth-of-type(7) {
-    width: 15%; // social media
+    width: 17%; // social media
   }
 `
 
@@ -181,5 +181,6 @@ const Cell = styled.td`
 `
 
 const RowNumber = styled.div`
-    margin: 0 24px;
+  text-align: center;
+  margin: 0 12px;
 `

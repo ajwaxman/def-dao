@@ -133,7 +133,7 @@ export async function getStaticProps() {
 }
 
 const Container = styled.div`
-    max-width: 1100px;
+    max-width: 1048px;
     margin: 0 auto;
 `
 
