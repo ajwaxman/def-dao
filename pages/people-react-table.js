@@ -11,6 +11,7 @@ import MetaTags from '../components/metatags'
 import Table from '../components/table'
 import Socials from '../components/socials'
 import { AvailabilityInput, SkillInput } from '../components/selectInputs'
+import Availability from '../components/availability'
 
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
@@ -64,7 +65,20 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             },
             {
                 Header: "Availability",
-                accessor: "availability"
+                accessor: "availability",
+                Cell: (props) => {
+                    const availabilities = props.value;
+                    return(
+                        <AvailabilitiesWrapper>
+                        {availabilities.map(availabilityData => {
+                            const [availability, color] = availabilityData;
+                            return(   
+                                <Availability availability={availability} color={color}/>
+                            )
+                        })}
+                        </AvailabilitiesWrapper>
+                    )
+                }
             },
             {
                 Header: "Date Joined",
@@ -134,4 +148,9 @@ const Header = styled.h1`
 
 const Wrapper = styled.div`
     display: block;
+`
+
+const AvailabilitiesWrapper = styled.div`
+    display: flex;
+    flex-direction: column-reverse;
 `

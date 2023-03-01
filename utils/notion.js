@@ -1,4 +1,5 @@
 const { Client } = require("@notionhq/client")
+import availabilityDetails from "./data/availabilities";
 import skillDetails from "./data/skills";
 
 const notion = new Client({
@@ -42,9 +43,9 @@ export const getAllPeople = async () => {
         const skills = properties.Skills.multi_select.map(skill => {
             return skillDetails[skill.name] || "";
         } );
-        const availability = properties.Availability.multi_select.map(openType => {
-            return openType.name;
-        });
+        const availability = properties.Availability.multi_select.map(availability => {
+            return availabilityDetails[availability.name];
+        })
         const dateJoined = properties.Joined.date?.start || "";
         let socials = [];
         
