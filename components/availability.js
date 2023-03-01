@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Availability = ({availability, color }) => {
+const Availability = ({availability, color, shadow }) => {
     return(
         <AvailabilityWrapper>
-            <ColorIndicator color={color}/>
+            <ColorIndicator color={color} shadow={shadow}/>
             <AvailabilityDetail>
                 {availability}
             </AvailabilityDetail>
@@ -15,11 +15,12 @@ const Availability = ({availability, color }) => {
 export default Availability;
 
 const ColorIndicator = styled.div`
-    width: 6px;
-    height: 6px;
-    border-radius: 6px;
+    width: 7px;
+    height: 7px;
+    border-radius: 7px;
     background: ${props => props.color};
     margin-right: 8px;
+    /* box-shadow: 0px 0px 3px 1px ${props => props.shadow}; */
 `
 
 const AvailabilityWrapper = styled.div`

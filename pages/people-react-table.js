@@ -71,9 +71,9 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                     return(
                         <AvailabilitiesWrapper>
                         {availabilities.map(availabilityData => {
-                            const [availability, color] = availabilityData;
+                            const [availability, color, shadow] = availabilityData;
                             return(   
-                                <Availability availability={availability} color={color}/>
+                                <Availability availability={availability} color={color} shadow={shadow}/>
                             )
                         })}
                         </AvailabilitiesWrapper>
@@ -133,7 +133,7 @@ export async function getStaticProps() {
 }
 
 const Container = styled.div`
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
 `
 
