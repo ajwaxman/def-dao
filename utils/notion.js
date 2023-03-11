@@ -36,9 +36,9 @@ export const getAllPeople = async () => {
         results = [...results, ...data.results]
     }
 
-    return results.map(({properties, icon}) => {
+    return results.map(({properties}) => {
         const userName = properties['Discord Username'].title[0]?.plain_text || ""
-        const avatarUrl = icon?.external.url || "";
+        const avatarUrl = properties.Avatar.url || "";
         const location = properties.Location.multi_select[0]?.name || "";
         const skills = properties.Skills.multi_select.map(skill => {
             return skillDetails[skill.name] || "";
