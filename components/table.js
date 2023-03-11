@@ -167,6 +167,7 @@ const TableWrapper = styled.table`
   min-width: 700px;
   border-radius: 8px 8px 8px 8px;
   overflow: hidden;
+  margin-bottom: 32px;
 
   @media ${QUERIES.tabletAndBelow} {
     min-width: 375px;
