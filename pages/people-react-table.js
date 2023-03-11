@@ -47,6 +47,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             {
                 Header: "Skills",
                 accessor: "skills",
+                disableSortBy: true,
                 Cell: (props) => {
                     const skills = props.value;
                     return(
@@ -87,6 +88,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
             {
                 Header: "",
                 accessor: "socials",
+                disableSortBy: true,
                 Cell: (props) => {
                     const socials = props.value;
                     return (

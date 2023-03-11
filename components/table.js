@@ -173,7 +173,7 @@ const TableWrapper = styled.table`
   }
 
   ${TableHeaderRow} th:first-of-type, ${TableRow} td:first-of-type {
-    padding-left: 24px;
+    padding-left: 0;
     width: 0;
     @media ${QUERIES.tabletAndBelow} {
       padding-left: 0;
