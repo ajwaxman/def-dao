@@ -107,6 +107,13 @@ const FilterWrapper = styled.div`
         margin-left: 20px;
         padding: 4px 8px;
     }
+
+    @media ${QUERIES.phoneAndBelow} {
+      flex-direction: column;
+      select {
+        margin: 4px 0;
+      }
+    }
 `
 
 
@@ -159,8 +166,6 @@ const TableWrapper = styled.table`
   overflow: hidden;
 
   @media ${QUERIES.tabletAndBelow} {
-    width: 95%;
-    margin: 0 auto;
     min-width: 375px;
   }
 

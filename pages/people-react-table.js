@@ -12,6 +12,7 @@ import Table from '../components/table'
 import Socials from '../components/socials'
 import { AvailabilityInput, SkillInput } from '../components/selectInputs'
 import Availability from '../components/availability'
+import { QUERIES } from '../utils/constants'
 
 
 export default function PeopleReactTable({ people, columnData, exampleData }) {
@@ -135,6 +136,10 @@ export async function getStaticProps() {
 const Container = styled.div`
     max-width: 1048px;
     margin: 0 auto;
+    @media ${QUERIES.tabletAndBelow} {
+      width: 95%;
+      margin: 0 auto;
+    }
 `
 
 const TableContainer = styled.div`
