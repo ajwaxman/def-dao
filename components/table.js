@@ -109,6 +109,43 @@ const FilterWrapper = styled.div`
     }
 `
 
+
+const TableHeaderRow = styled.tr`
+  background: #F9FAFB;
+  color: #131313;
+  height: 42px;
+  text-align: left;
+`
+
+const TableRow = styled.tr`
+  background: white;
+  color: #131313;
+  height: 64px;
+`
+
+const TableHead = styled.thead`
+`
+
+const TableHeader = styled.th`
+  border: 1px solid #F9FAFB;
+  border-bottom: 1px solid #E6E8EC;
+  line-height: 30px;
+`
+
+const Cell = styled.td`
+  border: 1px solid white;
+  border-bottom: 1px solid #E6E8EC;
+  &:last-child {
+    text-align: right;
+    width: 160px;
+  }
+`
+
+const RowNumber = styled.div`
+  text-align: center;
+  margin: 0 12px;
+`
+
 const TableWrapper = styled.table`
   table-layout: auto; 
   border-collapse: collapse;
@@ -173,40 +210,4 @@ const TableWrapper = styled.table`
   ${TableHeaderRow} th:nth-of-type(7), ${TableRow} td:nth-of-type(7) {
     width: 17%; // social media
   }
-`
-
-const TableHeaderRow = styled.tr`
-  background: #F9FAFB;
-  color: #131313;
-  height: 42px;
-  text-align: left;
-`
-
-const TableRow = styled.tr`
-  background: white;
-  color: #131313;
-  height: 64px;
-`
-
-const TableHead = styled.thead`
-`
-
-const TableHeader = styled.th`
-  border: 1px solid #F9FAFB;
-  border-bottom: 1px solid #E6E8EC;
-  line-height: 30px;
-`
-
-const Cell = styled.td`
-  border: 1px solid white;
-  border-bottom: 1px solid #E6E8EC;
-  &:last-child {
-    text-align: right;
-    width: 160px;
-  }
-`
-
-const RowNumber = styled.div`
-  text-align: center;
-  margin: 0 12px;
 `
