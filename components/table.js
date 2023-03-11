@@ -103,14 +103,17 @@ const FilterWrapper = styled.div`
     justify-content: flex-end;
     margin-bottom: 16px;
 
+    select, .select {
+      margin-left: 20px;
+    }
+
     select {
-        margin-left: 20px;
         padding: 4px 8px;
     }
 
     @media ${QUERIES.phoneAndBelow} {
       flex-direction: column;
-      select {
+      select, .select {
         margin: 4px 0;
       }
     }
