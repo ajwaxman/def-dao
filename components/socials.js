@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { GitHubIcon, GlobeIcon, OpenSeaIcon, TwitterIcon } from "./icons";
+import { QUERIES } from "../utils/constants";
 
 const Socials = ({socials}) => {
     const socialIcons = {
@@ -44,7 +45,11 @@ const IconWrapper = styled.div`
     svg {
         height: ${iconSize};
         width: ${iconSize};
-        margin: 0 calc(${iconSpacing}/2 - 2px);
+        /* margin: 0 calc(${iconSpacing}/2 - 2px); */
+        margin: 0 3px;
+        @media ${QUERIES.phoneAndBelow} {
+            margin: 0 2px;
+        }
         path {
             fill: #3F3F46;
         }
