@@ -3,6 +3,7 @@ import { useFilters, useSortBy, useTable } from "react-table";
 import styled from 'styled-components'
 import { ArrowDownIcon, ArrowUpIcon} from '@heroicons/react/24/solid'
 import { AvailabilitySelector, LocationSelector, SkillSelector } from "./selectInputs";
+import { QUERIES } from "../utils/constants";
 
 export default function Table({ columns, data }) {
   // Use the useTable Hook to send the columns and data to build the table
@@ -119,6 +120,59 @@ const TableWrapper = styled.table`
   min-width: 700px;
   border-radius: 8px 8px 8px 8px;
   overflow: hidden;
+
+  @media ${QUERIES.tabletAndBelow} {
+    width: 95%;
+    margin: 0 auto;
+    min-width: 375px;
+  }
+
+  ${TableHeaderRow} th:first-of-type, ${TableRow} td:first-of-type {
+    padding-left: 24px;
+    width: 0;
+    @media ${QUERIES.tabletAndBelow} {
+      padding-left: 0;
+    }
+  }
+  ${TableHeaderRow} th:nth-of-type(1), ${TableRow} td:nth-of-type(1) {
+    width: 0%; // row number
+  }
+  ${TableHeaderRow} th:nth-of-type(2), ${TableRow} td:nth-of-type(2) {
+    width: 18%; // username
+    white-space: nowrap;
+    @media ${QUERIES.tabletAndBelow} {
+      width: 0%;
+    }
+  }
+  ${TableHeaderRow} th:nth-of-type(3), ${TableRow} td:nth-of-type(3) {
+    width: 12%; // location
+    white-space: nowrap;
+    @media ${QUERIES.tabletAndBelow} {
+      display: none;
+    }
+  }
+  ${TableHeaderRow} th:nth-of-type(4), ${TableRow} td:nth-of-type(4){
+    width: 28%; // Skills
+    white-space: nowrap;
+    @media ${QUERIES.tabletAndBelow} {
+      display: none;
+    }
+  }
+  ${TableHeaderRow} th:nth-of-type(5), ${TableRow} td:nth-of-type(5) {
+    width: 15%; // Availability
+    @media ${QUERIES.tabletAndBelow} {
+      display: none;
+    }
+  }
+  ${TableHeaderRow} th:nth-of-type(6), ${TableRow} td:nth-of-type(6) {
+    width: 10%; // joined
+    @media ${QUERIES.tabletAndBelow} {
+      display: none;
+    }
+  }
+  ${TableHeaderRow} th:nth-of-type(7), ${TableRow} td:nth-of-type(7) {
+    width: 17%; // social media
+  }
 `
 
 const TableHeaderRow = styled.tr`
@@ -135,34 +189,6 @@ const TableRow = styled.tr`
 `
 
 const TableHead = styled.thead`
-  ${TableHeaderRow} th:first-of-type {
-    padding-left: 24px;
-    width: 0;
-  }
-  ${TableHeaderRow} th:nth-of-type(1) {
-    width: 0%; // row number
-  }
-  ${TableHeaderRow} th:nth-of-type(2) {
-    width: 18%; // username
-    white-space: nowrap;
-  }
-  ${TableHeaderRow} th:nth-of-type(3) {
-    width: 12%; // location
-    white-space: nowrap;
-  }
-  ${TableHeaderRow} th:nth-of-type(4) {
-    width: 28%;
-    white-space: nowrap;
-  }
-  ${TableHeaderRow} th:nth-of-type(5) {
-    width: 15%;
-  }
-  ${TableHeaderRow} th:nth-of-type(6) {
-    width: 10%; // joined
-  }
-  ${TableHeaderRow} th:nth-of-type(7) {
-    width: 17%; // social media
-  }
 `
 
 const TableHeader = styled.th`
