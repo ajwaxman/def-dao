@@ -1,73 +1,162 @@
+import React, { useMemo } from 'react'
+import styled from 'styled-components'
+import { getAllPeople } from '../utils/notion'
+import { memberSort } from '../utils/utils'
+import exampleData from '../utils/data/example-data'
 import Navigation from '../components/navigation'
 import NavigationAnimation from '../components/navigation-animation'
-import { people_table } from "../utils/airtable"
+import RadixTooltip from '../components/tooltip'
+import Member from '../components/member'
 import MetaTags from '../components/metatags'
+import Table from '../components/table'
+import Socials from '../components/socials'
+import Availability from '../components/availability'
+import { QUERIES } from '../utils/constants'
 
 
-export default function People({ people }) {
+export default function PeopleReactTable({ people, columnData, exampleData }) {
 
+    const columns = useMemo(
+        () => [
+            {
+                Header: "",
+                id: 'index',
+                accessor: '1',
+                indexed: true,
+                disableSortBy: true,
+                Cell: (props) => {
+                    return <RowNumber>{props.value}</RowNumber>;
+                }
+            },
+            {
+                Header: "Member",
+                accessor: "member",
+                sortType: memberSort,
+                Cell: (props) => {
+                    const username = props.value[0];
+                    const avatar_url = props.value[1];
+                    return(
+                        <Member username={username} avatar_url={avatar_url}/>
+                    )
+                }
+            },
+            {
+                Header: "Location",
+                accessor: "location"
+            },
+            {
+                Header: "Skills",
+                accessor: "skills",
+                disableSortBy: true,
+                Cell: (props) => {
+                    const skills = props.value;
+                    return(
+                        skills.map(skillData => {
+                            const [skill, emoji, color] = skillData;
+                            return (
+                                <RadixTooltip key={skill} text={skill}>
+                                    <span style={{display: "inline-block", padding: "2px 0", background: color, minWidth: "24px", textAlign: "center"}}>
+                                         <span alt={skill}>{emoji}</span>
+                                    </span>
+                                </RadixTooltip>
+                            )
+                        })
+                    )
+                }
+            },
+            {
+                Header: "Availability",
+                accessor: "availability",
+                Cell: (props) => {
+                    const availabilities = props.value;
+                    return(
+                        <AvailabilitiesWrapper>
+                        {availabilities.map(availabilityData => {
+                            const [availability, color, shadow] = availabilityData;
+                            return(   
+                                <Availability availability={availability} color={color} shadow={shadow} key={availability}/>
+                            )
+                        })}
+                        </AvailabilitiesWrapper>
+                    )
+                }
+            },
+            {
+                Header: "Date Joined",
+                accessor: "dateJoined"
+            },
+            {
+                Header: "",
+                accessor: "socials",
+                disableSortBy: true,
+                Cell: (props) => {
+                    const socials = props.value;
+                    return (
+                        <Socials socials={socials} />
+                    )
+                }
+            }
+        ],
+        []
+    );
+    
     return (
-        <div className="wrapper people">
+        <Wrapper className="wrapper people-table">
             <MetaTags />
             <Navigation />
             <NavigationAnimation />
-            <div className="container container-closed block visible manifesto">
-                <div className="content manifesto">
-                    <h1>Who we are</h1>
+            <Container className="container-closed block visible">
+                <div className="content">
+                    <Header>Who we are</Header>
                 </div>
-                <div>
-                    <ul className="people">
-                        {people.map((twitter, key) => (
-                            <a key={twitter} href={"https://twitter.com/" + twitter}>
-                                <li>
-                                    {twitter}
-                                </li>
-                            </a>                            
-                        ))};
-                    </ul>
-                </div>
-            </div>
+                <TableContainer>
+                    <Table columns={columns} data={people}/>
+                </TableContainer>
+            </Container>
             <style dangerouslySetInnerHTML={{
                 __html: `
                     body { padding: 0px }
                 `}} />
-        </div>
+        </Wrapper>
 
     )
 }
 
-export async function getStaticProps(context) {
-    try {
-        const items = await people_table.select({}).firstPage();
+export async function getStaticProps() {
+    const data = await getAllPeople()
 
-        var people = items.filter(x => !!x.fields.twitter); // Filter out names that don't have a twitter
-
-        var twitter_list = [];
-        for (const p of people) {
-            var twitter = p.fields.twitter
-
-            // Remove leading "@" for twitter handles
-            if (twitter.indexOf("@") > -1) {
-                twitter_list.push(p.fields.twitter.slice(1));
-            } else {
-                twitter_list.push(p.fields.twitter);
-            }
-        }
-
-        // Sort array alphabetically, from https://stackoverflow.com/questions/6712034/sort-array-by-firstname-alphabetically-in-javascript
-        twitter_list.sort((a, b) => a.localeCompare(b))
-
-        return {
-            props: {
-                people: twitter_list,
-            },
-        };
-    } catch (error) {
-        console.log(error);
-        return {
-            props: {
-                err: "Something went wrong 😕",
-            },
-        };
-    }
+    return {
+        props: {
+            people: data,
+            exampleData: exampleData
+        },
+        revalidate: 60
+    };
 }
+
+const Container = styled.div`
+    max-width: 1048px;
+    margin: 0 auto;
+    @media ${QUERIES.tabletAndBelow} {
+      width: 95%;
+      margin: 0 auto;
+    }
+`
+
+const TableContainer = styled.div`
+    overflow-x: auto;
+`
+
+const Header = styled.h1`
+    text-align: center;
+    font-size: 3rem;
+`
+
+const Wrapper = styled.div`
+    display: block;
+`
+
+const AvailabilitiesWrapper = styled.div`
+    display: flex;
+    flex-direction: column-reverse;
+`
