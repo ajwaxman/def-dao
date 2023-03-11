@@ -73,7 +73,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                         {availabilities.map(availabilityData => {
                             const [availability, color, shadow] = availabilityData;
                             return(   
-                                <Availability availability={availability} color={color} shadow={shadow}/>
+                                <Availability availability={availability} color={color} shadow={shadow} key={availability}/>
                             )
                         })}
                         </AvailabilitiesWrapper>
