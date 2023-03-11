@@ -77,7 +77,7 @@ export const LocationSelector = ({setFilter}) => {
     const [locationFilter, setLocationFilter] = useState('');
 
     const options = [
-        { value: "", label: "All locations"},
+        { value: "", label: "All Locations"},
         { value: "new york", label: "New York"},
         { value: "los angeles", label: "Los Angeles"},
         { value: "san francisco", label: "San Francisco"},

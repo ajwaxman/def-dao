@@ -170,7 +170,7 @@ const TableWrapper = styled.table`
   margin-bottom: 32px;
 
   @media ${QUERIES.tabletAndBelow} {
-    min-width: 375px;
+    min-width: 350px;
   }
 
   ${TableHeaderRow} th:first-of-type, ${TableRow} td:first-of-type {
