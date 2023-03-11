@@ -1,22 +1,48 @@
 import React, { useState } from "react";
+import Select from 'react-select';
 
-export const AvailabilitySelector = ({setFilter}) => {
+export const AvailabilitySelectorOld = ({setFilter}) => {
 
-    const [availabilityFilter, setAvailabilityFilter] = useState('');
+    // const [availabilityFilter, setAvailabilityFilter] = useState('');
     
     return(
         <select
            value={availabilityFilter}
             onChange={e => {
-                setAvailabilityFilter(e.target.value);
-                setFilter('availability', e.target.value || undefined);
+                console.log(e.target)
+                // setAvailabilityFilter(e.target.value);
+                // setFilter('availability', e.target.value || undefined);
             }}
         >
-            <option value="">All Availability</option>
+            <option value="null">All Availability</option>
             <option value="part time">Part Time</option>
             <option value="full time">Full Time</option>
             <option value="contract">Contract Audits</option>
         </select>
+    )
+}
+
+export const AvailabilitySelector = ({setFilter}) => {
+    
+    const [availabilityFilter, setAvailabilityFilter] = useState('');
+
+    const options = [
+        { value: "", label: "All Availability"},
+        { value: "part time", label: "Part Time"},
+        { value: "full time", label: "Full Time"},
+        { value: "contract", label: "Contract Audits"},
+    ]
+
+    return(
+        <Select 
+            placeholder={"All Availability"}
+            onChange={e => {
+                setAvailabilityFilter(),
+                setFilter('availability', e.value || undefined); 
+            }}
+            isSearchable={false}
+            options={options}
+        />
     )
 }
 

@@ -10,7 +10,6 @@ import Member from '../components/member'
 import MetaTags from '../components/metatags'
 import Table from '../components/table'
 import Socials from '../components/socials'
-import { AvailabilityInput, SkillInput } from '../components/selectInputs'
 import Availability from '../components/availability'
 import { QUERIES } from '../utils/constants'
 
