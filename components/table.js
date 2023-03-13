@@ -41,6 +41,8 @@ export default function Table({ columns, data }) {
     the react-table props from the Hooks, and it will do its magic automatically\
   */
 
+  console.log("Hello", pageIndex)
+
   return(
     <>
       <FilterWrapper>
@@ -75,7 +77,7 @@ export default function Table({ columns, data }) {
               <TableRow {...row.getRowProps()}>
                   {row.cells.map(cell => {
                     
-                  return <Cell {...cell.getCellProps()}>{cell.column.indexed ? <RowNumber>{i + 1}</RowNumber> : cell.render('Cell')}</Cell>;
+                  return <Cell {...cell.getCellProps()}>{cell.column.indexed ? <RowNumber>{(pageIndex) * pageSize + i + 1}</RowNumber> : cell.render('Cell')}</Cell>;
                   })}
               </TableRow>
               );
