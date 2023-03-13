@@ -14,7 +14,7 @@ import Availability from '../components/availability'
 import { QUERIES } from '../utils/constants'
 
 
-export default function PeopleReactTable({ people, columnData, exampleData }) {
+export default function PeopleReactTable({ people }) {
 
     const columns = useMemo(
         () => [
@@ -110,7 +110,7 @@ export default function PeopleReactTable({ people, columnData, exampleData }) {
                     <Header>Who we are</Header>
                 </div>
                 <TableContainer>
-                    <Table columns={columns} data={people}/>
+                    <Table columns={columns} data={people} />
                 </TableContainer>
             </Container>
             <style dangerouslySetInnerHTML={{
