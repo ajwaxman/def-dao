@@ -219,7 +219,7 @@ const TableWrapper = styled.table`
   ${TableHeaderRow} th:nth-of-type(7), ${TableRow} td:nth-of-type(7) {
     width: 17%; // social media
     @media ${QUERIES.tabletAndBelow} {
-      width: 50%;
+      width: 70%;
     }
   }
 `
