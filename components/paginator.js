@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ChevronLeft, ChevronRight } from "./icons";
 
 const Paginator = ({gotoPage, canPreviousPage, canNextPage, previousPage, nextPage, pageIndex, pageOptions, pageSize}) => {
     return (
@@ -49,9 +50,10 @@ const Paginator = ({gotoPage, canPreviousPage, canNextPage, previousPage, nextPa
                 </select>
             </PaginatorOldWrapper>
             <PaginatorWrapper>
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                        Previous
-                </button>{" "}
+                
+                <IconWrapper onClick={() => previousPage()}>
+                    <ChevronLeft></ChevronLeft>
+                </IconWrapper>
                 <Pages>
                     { canPreviousPage && (
                         <Page onClick={() => gotoPage(0)}>{ 1 }</Page>                               
@@ -77,9 +79,9 @@ const Paginator = ({gotoPage, canPreviousPage, canNextPage, previousPage, nextPa
                         <Page onClick={() => gotoPage(pageOptions.length - 1)}>{ pageOptions.length }</Page>
                     )}
                 </Pages>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>
-                    Next
-                </button>{" "}
+                <IconWrapper onClick={() => nextPage()}>
+                    <ChevronRight></ChevronRight>
+                </IconWrapper>
             </PaginatorWrapper>
         </>
     )
@@ -98,6 +100,16 @@ const PaginatorWrapper = styled.div`
     color: white;
     width: fit-content;
     margin: 32px auto;
+    svg {
+        width: 36px;
+        stroke-width: 2px;
+        padding: 0 6px;
+        cursor: pointer;
+    }
+`
+
+const IconWrapper = styled.div`
+    display: flex;
 `
 
 const Pages = styled.div`

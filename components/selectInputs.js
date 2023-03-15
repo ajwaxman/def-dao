@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useId } from "react";
 import Select from 'react-select';
 
 const selectStyles = {
@@ -31,6 +31,7 @@ export const AvailabilitySelector = ({setFilter}) => {
             className="select"
             options={options}
             styles={selectStyles}
+            instanceId={useId()}
         />
     )
 }
@@ -68,6 +69,7 @@ export const SkillSelector = ({setFilter}) => {
             className="select"
             options={options}
             styles={selectStyles}
+            instanceId={useId()}
         />
     )
 }
@@ -105,6 +107,7 @@ export const LocationSelector = ({setFilter}) => {
             className="select"
             options={options}
             styles={selectStyles}
+            instanceId={useId()}
         />
     )
 }
